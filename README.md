@@ -2,3 +2,5 @@
 
 Development version of the underlying R code for the EUropean Elections Stats project 
 https://europeanelectionsstats.eu/
+
+Developed by Camille Borrett and Moritz Laurer
