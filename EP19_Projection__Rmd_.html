@@ -127,22 +127,1107 @@ $(document).ready(function () {
 
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
-<p>testText This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
-</div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<p>Test sentence</p>
+<pre class="r"><code># get necessary packages
+
+#installing packages
+#git testestest
+
+if(!is.element('electoral', installed.packages()[,1]))
+{install.packages('electoral')
+}else {print(&quot;electoral library already installed&quot;)}</code></pre>
+<pre><code>## [1] &quot;electoral library already installed&quot;</code></pre>
+<pre class="r"><code>if(!is.element('plyr', installed.packages()[,1]))
+{install.packages('plyr')
+}else {print(&quot;plyr library already installed&quot;)}</code></pre>
+<pre><code>## [1] &quot;plyr library already installed&quot;</code></pre>
+<pre class="r"><code>if(!is.element('dplyr', installed.packages()[,1]))
+{install.packages('dplyr')
+}else {print(&quot;dplyr library already installed&quot;)}</code></pre>
+<pre><code>## [1] &quot;dplyr library already installed&quot;</code></pre>
+<pre class="r"><code>#activating packages 
+library(&quot;electoral&quot;)
+library(&quot;plyr&quot;)
+library(&quot;dplyr&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: 'dplyr'</code></pre>
+<pre><code>## The following objects are masked from 'package:plyr':
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>#Download and calculate 8and view) all the data 
+
+#code for each MS  
+
+#GERMANY
+de.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/DE-parliament/format/csv&quot;))
+afdpolls&lt;-tail(de.csv$afd,3)
+afdmean&lt;-mean(afdpolls,na.rm=TRUE)
+fdppolls&lt;-tail(de.csv$fdp,3)
+fdpmean&lt;-mean(fdppolls,na.rm=TRUE)
+gruenepolls&lt;-tail(de.csv$gruene,3)
+gruenemean&lt;-mean(gruenepolls,na.rm=TRUE)
+linkepolls&lt;-tail(de.csv$linke,3)
+linkemean&lt;-mean(linkepolls,na.rm=TRUE)
+spdpolls&lt;-tail(de.csv$spd,3)
+spdmean&lt;-mean(spdpolls,na.rm=TRUE)
+unionpolls&lt;-tail(de.csv$union,3)
+unionmean&lt;-mean(unionpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(afdmean,fdpmean,gruenemean,linkemean,spdmean,unionmean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;AFD (Germany)&quot;,&quot;FDP (Germany)&quot;,&quot;GRUENE (Germany)&quot;,&quot;LINKE (Germany)&quot;,&quot;SPD (Germany)&quot;,&quot;UNION (Germany)&quot;,&quot;N.A1&quot;,&quot;N.A2&quot;,&quot;N.A3&quot;,&quot;N.A4&quot;,&quot;N.A5&quot;,&quot;N.A6&quot;,&quot;N.A7&quot;,&quot;N.A8&quot;)
+GROUPS&lt;-c(&quot;ni.RW.pop&quot;,&quot;ALDE&quot;,&quot;GREENS&quot;,&quot;GUE-NGL&quot;,&quot;S&amp;D&quot;,&quot;EPP&quot;,&quot;ECR&quot;,&quot;EFDD&quot;,&quot;ni.LW.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;new.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ENF&quot;)
+DE&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(DE$PARTIES),votes=c(DE$LAST_POLLS),n_seats=96,method=&quot;dhondt&quot;)
+DE.parties=DE$PARTIES
+EPgroups=DE$GROUP
+GERMANY&lt;-data.frame(EPgroups,DE.parties,seats)
+
+GERMANY1&lt;-aggregate(seats~EPgroups,data=GERMANY,sum)
+
+#AUSTRIA
+au.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/AT-parliament/format/csv&quot;))
+fpoepolls&lt;-tail(au.csv$fpoe,3)
+fpoemean&lt;-mean(fpoepolls,na.rm=TRUE)
+augruene&lt;-tail(au.csv$gruene,3)
+augruenemean&lt;-mean(augruene,na.rm=TRUE)
+neospolls&lt;-tail(au.csv$neos,3)
+neosmean&lt;-mean(neospolls,na.rm=TRUE)
+oevppolls&lt;-tail(au.csv$oevp,3)
+oevpmean&lt;-mean(oevppolls,na.rm=TRUE)
+spoepolls&lt;-tail(au.csv$spoe,3)
+spoemean&lt;-mean(spoepolls,na.rm=TRUE)
+pilzpolls&lt;-tail(au.csv$pilz,3)
+pilzmean&lt;-mean(pilzpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(fpoemean,augruenemean,neosmean,oevpmean,spoemean,pilzmean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;FPOE (Austria)&quot;,&quot;GRUENE (Austria)&quot;,&quot;NEOS (Austria)&quot;,&quot;OEVP (Austria)&quot;,&quot;SPOE (Austria)&quot;,&quot;PILZ (Austria)&quot;,&quot;NA1&quot;,&quot;NA2&quot;,&quot;NA3&quot;,&quot;NA4&quot;,&quot;NA5&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;)
+GROUPS&lt;-c(&quot;ENF&quot;,&quot;GREENS&quot;,&quot;ALDE&quot;,&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;new.LW.pop&quot;,&quot;GUE-NGL&quot;,&quot;ECR&quot;,&quot;EFDD&quot;,&quot;ni.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;new.non.pop&quot;,&quot;new.RW.pop&quot;,&quot;ni.RW.pop&quot;)
+AU&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(AU$PARTIES),votes=c(AU$LAST_POLLS),n_seats=19,method=&quot;dhondt&quot;)
+AU.parties=AU$PARTIES
+EPgroups=AU$GROUP
+AUSTRIA&lt;-data.frame(EPgroups,AU.parties,seats)
+
+AUSTRIA1&lt;-aggregate(seats~EPgroups,data=AUSTRIA,sum)
+
+#BELGIUM
+be.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/BE-parliament/format/csv&quot;))
+cdhpolls&lt;-tail(be.csv$cdh,3)
+cdhmean&lt;-mean(cdhpolls,na.rm=TRUE)
+cdvpolls&lt;-tail(be.csv$cdv,3)
+cdvmean&lt;-mean(cdvpolls,na.rm=TRUE)
+defipolls&lt;-tail(be.csv$defi,3)
+defimean&lt;-mean(defipolls,na.rm=TRUE)
+ecolopolls&lt;-tail(be.csv$ecolo,3)
+ecolomean&lt;-mean(ecolopolls,na.rm=TRUE)
+groenpolls&lt;-tail(be.csv$groen,3)
+groenmean&lt;-mean(groenpolls,na.rm=TRUE)
+mrpolls&lt;-tail(be.csv$mr,3)
+mrmean&lt;-mean(mrpolls,na.rm=TRUE)
+nvapolls&lt;-tail(be.csv$nva,3)
+nvamean&lt;-mean(nvapolls,na.rm=TRUE)
+openvldpolls&lt;-tail(be.csv$openvld,3)
+openvldmean&lt;-mean(openvldpolls,na.rm=TRUE)
+pspolls&lt;-tail(be.csv$ps,3)
+psmean&lt;-mean(pspolls,na.rm=TRUE)
+pvdaptbpolls&lt;-tail(be.csv$pvdaptb,3)
+pvdaptbmean&lt;-mean(pvdaptbpolls,na.rm=TRUE)
+spapolls&lt;-tail(be.csv$spa,3)
+spamean&lt;-mean(spapolls,na.rm=TRUE)
+velaamspolls&lt;-tail(be.csv$vlaamsbelang,3)
+velaamsmean&lt;-mean(velaamspolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(cdhmean,cdvmean,defimean,ecolomean,groenmean,mrmean,nvamean,openvldmean,psmean,pvdaptbmean,spamean,velaamsmean,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;cdH (Belgium)&quot;,&quot;CDV (Belgium)&quot;,&quot;DEFI (Belgium)&quot;,&quot;ECOLO (Belgium)&quot;,&quot;GROEN (Belgium)&quot;,&quot;MR (Belgium)&quot;,&quot;NVA (Belgium)&quot;,&quot;OPENVLD (Belgium)&quot;,&quot;PS (Belgium)&quot;,&quot;PVDAPTB (Belgium)&quot;,&quot;SPA (Belgium)&quot;,&quot;VELAAMSBELANG (Belgium)&quot;,&quot;NA1&quot;,&quot;NA2&quot;,&quot;NA3&quot;,&quot;NA4&quot;,&quot;NA5&quot;,&quot;NA6&quot;)
+GROUPS&lt;-c(&quot;EPP&quot;,&quot;EPP&quot;,&quot;new.non.pop&quot;,&quot;GREENS&quot;,&quot;GREENS&quot;,&quot;ALDE&quot;,&quot;ECR&quot;,&quot;ALDE&quot;,&quot;S&amp;D&quot;,&quot;GUE-NGL&quot;,&quot;S&amp;D&quot;,&quot;ENF&quot;,&quot;new.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;EFDD&quot;,&quot;ni.RW.pop&quot;)
+BE&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(BE$PARTIES),votes=c(BE$LAST_POLLS),n_seats=21,method=&quot;dhondt&quot;)
+BE.parties=BE$PARTIES
+EPgroups=BE$GROUP
+BELGIUM&lt;-data.frame(EPgroups,BE.parties,seats)
+
+BELGIUM1&lt;-aggregate(seats~EPgroups,data=BELGIUM,sum)
+
+#BULGARIA
+bu.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/BG-parliament/format/csv&quot;))
+bsppolls&lt;-tail(bu.csv$bsp,3)
+bspmean&lt;-mean(bsppolls,na.rm=TRUE)
+dpspolls&lt;-tail(bu.csv$dps,3)
+dpsmean&lt;-mean(dpspolls,na.rm=TRUE)
+gerbpolls&lt;-tail(bu.csv$gerb,3)
+gerbmean&lt;-mean(gerbpolls,na.rm=TRUE)
+rbpolls&lt;-tail(bu.csv$rb,3)
+rbmean&lt;-mean(rbpolls,na.rm=TRUE)
+abvpolls&lt;-tail(bu.csv$abv,3)
+abvmean&lt;-mean(abvpolls,na.rm=TRUE)
+patriotspolls&lt;-tail(bu.csv$patriots,3)
+patriotsmean&lt;-mean(patriotspolls,na.rm=TRUE)
+volyapolls&lt;-tail(bu.csv$volya,3)
+volyamean&lt;-mean(volyapolls,na.rm=TRUE)
+yesbgpolls&lt;-tail(bu.csv$yesbg,3)
+yesbgmean&lt;-mean(yesbgpolls,na.rm=TRUE)
+bmpopolls&lt;-tail(bu.csv$bmpo,3)
+bmpomean&lt;-mean(bmpopolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(bspmean,dpsmean,gerbmean,rbmean,abvmean,patriotsmean,volyamean,yesbgmean,bmpomean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;BSP (Bulgaria)&quot;,&quot;DPS (Bulgaria)&quot;,&quot;GERB (Bulgaria)&quot;,&quot;RB (Bulgaria)&quot;,&quot;ABV (Bulgaria)&quot;,&quot;PATRIOTS (Bulgaria)&quot;,&quot;VOLYA (Bulgaria)&quot;,&quot;YESBG (Bulgaria)&quot;,&quot;BMPO (Bulgaria)&quot;,&quot;NA4 (Bulgaria)&quot;,&quot;NA5 (Bulgaria)&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;)
+GROUPS&lt;-c(&quot;S&amp;D&quot;,&quot;ALDE&quot;,&quot;EPP&quot;,&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;ECR&quot;,&quot;new.RW.pop&quot;,&quot;GREENS&quot;,&quot;ECR&quot;,&quot;EFDD&quot;,&quot;GUE-NGL&quot;,&quot;ni.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;new.non.pop&quot;,&quot;new.LW.pop&quot;,&quot;ENF&quot;)
+BU&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(BU$PARTIES),votes=c(BU$LAST_POLLS),n_seats=17,method=&quot;dhondt&quot;)
+BU.parties=BU$PARTIES
+EPgroups=BU$GROUP
+BULGARIA&lt;-data.frame(EPgroups,BU.parties,seats)
+
+BULGARIA1&lt;-aggregate(seats~EPgroups,data=BULGARIA,sum)
+
+#CROATIA
+
+hr.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/HR-parliament/format/csv&quot;))
+bm365polls&lt;-tail(hr.csv$bm365,3)
+bm365mean&lt;-mean(bm365polls,na.rm=TRUE)
+hdzpolls&lt;-tail(hr.csv$hdz,3)
+hdzmean&lt;-mean(hdzpolls,na.rm=TRUE)
+sdphrpolls&lt;-tail(hr.csv$sdp,3)
+sdphrmean&lt;-mean(sdphrpolls,na.rm=TRUE)
+zivizidpolls&lt;-tail(hr.csv$zivizid,3)
+zivizidmean&lt;-mean(zivizidpolls, na.rm=TRUE)
+mostpolls&lt;-tail(hr.csv$most,3)
+mostmean&lt;-mean(mostpolls,na.rm=TRUE)
+hnspolls&lt;-tail(hr.csv$hns,3)
+hnsmean&lt;-mean(hnspolls,na.rm=TRUE)
+hsspolls&lt;-tail(hr.csv$hss,3)
+hssmean&lt;-mean(hsspolls,na.rm=TRUE)
+idspolls&lt;-tail(hr.csv$ids,3)
+idsmean&lt;-mean(idspolls,na.rm=TRUE)
+ppolls&lt;-tail(hr.csv$p,3)
+pmean&lt;-mean(ppolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(bm365mean,hdzmean,sdphrmean,zivizidmean,mostmean,hnsmean,hssmean,idsmean,pmean,0,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;BM365 (Croatia)&quot;,&quot;HDZ (Croatia)&quot;,&quot;SDP (Croatia)&quot;,&quot;ZIVIZID (Croatia)&quot;,&quot;MOST (Croatia)&quot;,&quot;HNS (Croatia)&quot;,&quot;HSS (Croatia)&quot;,&quot;IDS (Croatia)&quot;,&quot;P (Croatia)&quot;,&quot;NA4&quot;,&quot;NA5&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;)
+GROUPS&lt;-c(&quot;new.non.pop&quot;,&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;ALDE&quot;,&quot;EPP&quot;,&quot;ALDE&quot;,&quot;ALDE&quot;,&quot;EFDD&quot;,&quot;GUE-NGL&quot;,&quot;ni.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;new.RW.pop&quot;,&quot;ECR&quot;,&quot;GREENS&quot;,&quot;ENF&quot;)
+HR&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(HR$PARTIES),votes=c(HR$LAST_POLLS),n_seats=12,method=&quot;dhondt&quot;)
+HR.parties=HR$PARTIES
+EPgroups=HR$GROUP
+CROATIA&lt;-data.frame(EPgroups,HR.parties,seats)
+
+CROATIA1&lt;-aggregate(seats~EPgroups,data=CROATIA,sum)
+
+#CYPRUS
+
+cy.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/CY-parliament/format/csv&quot;))
+akelpolls&lt;-tail(cy.csv$AKEL,3)
+akelmean&lt;-mean(akelpolls,na.rm=TRUE)
+dikopolls&lt;-tail(cy.csv$DIKO,3)
+dikomean&lt;-mean(dikopolls,na.rm=TRUE)
+disypolls&lt;-tail(cy.csv$DISY,3)
+disymean&lt;-mean(disypolls,na.rm=TRUE)
+edekpolls&lt;-tail(cy.csv$EDEK,3)
+edekmean&lt;-mean(edekpolls,na.rm=TRUE)
+elampolls&lt;-tail(cy.csv$ELAM,3)
+elammean&lt;-mean(elampolls,na.rm=TRUE)
+kapolls&lt;-tail(cy.csv$KA,3)
+kamean&lt;-mean(kapolls,na.rm=TRUE)
+kospolls&lt;-tail(cy.csv$KOSP,3)
+kospmean&lt;-mean(kospolls,na.rm=TRUE)
+sypolpolls&lt;-tail(cy.csv$SYPOL,3)
+sypolmean&lt;-mean(sypolpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(akelmean,dikomean,disymean,edekmean,elammean,kamean,kospmean,sypolmean,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;AKEL (Cyprus)&quot;,&quot;DIKO (Cyprus)&quot;,&quot;DISY (Cyprus)&quot;,&quot;EDEK (Cyprus)&quot;,&quot;ELAM (Cyprus)&quot;,&quot;KA (Cyprus)&quot;,&quot;KOSP (Cyprus)&quot;,&quot;SYPOL (Cyprus)&quot;,&quot;NA4&quot;,&quot;NA5&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;)
+GROUPS&lt;-c(&quot;GUE-NGL&quot;,&quot;S&amp;D&quot;,&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;new.RW.pop&quot;,&quot;ECR&quot;,&quot;GREENS&quot;,&quot;ALDE&quot;,&quot;EFDD&quot;,&quot;ni.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;ENF&quot;)
+CY&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(CY$PARTIES),votes=c(CY$LAST_POLLS),n_seats=6,method=&quot;dhondt&quot;)
+CY.parties=CY$PARTIES
+EPgroups=CY$GROUP
+CYPRUS&lt;-data.frame(EPgroups,CY.parties,seats)
+
+CYPRUS1&lt;-aggregate(seats~EPgroups,data=CYPRUS,sum)
+
+#CZECH REPUBLIC 
+
+cz.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/CZ-parliament/format/csv&quot;))
+anopolls&lt;-tail(cz.csv$ano,3)
+anomean&lt;-mean(anopolls,na.rm=TRUE)
+cssdpolls&lt;-tail(cz.csv$cssd,3)
+cssdmean&lt;-mean(cssdpolls,na.rm=TRUE)
+kdupolls&lt;-tail(cz.csv$kdu,3)
+kdumean&lt;-mean(kdupolls,na.rm=TRUE)
+kscmpolls&lt;-tail(cz.csv$kscm,3)
+kscmmean&lt;-mean(kscmpolls,na.rm=TRUE)
+odspolls&lt;-tail(cz.csv$ods,3)
+odsmean&lt;-mean(odspolls,na.rm=TRUE)
+piratipolls&lt;-tail(cz.csv$pirati,3)
+piratimean&lt;-mean(piratipolls,na.rm=TRUE)
+top9polls&lt;-tail(cz.csv$top9,3)
+top9mean&lt;-mean(top9polls,na.rm=TRUE)
+szpolls&lt;-tail(cz.csv$sz,3)
+szmean&lt;-mean(szpolls,na.rm=TRUE)
+spdczpolls&lt;-tail(cz.csv$spd,3)
+spdczmean&lt;-mean(spdczpolls,na.rm=TRUE)
+stanpolls&lt;-tail(cz.csv$czstan,3)
+stanmean&lt;-mean(stanpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(anomean,cssdmean,kdumean,kscmmean,odsmean,piratimean,top9mean,szmean,spdczmean,stanmean,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;ANO (Czech Rep)&quot;,&quot;CSSD (Czech Rep)&quot;,&quot;KDU (Czech Rep)&quot;,&quot;KSCM (Czech Rep)&quot;,&quot;ODS (Czech Rep)&quot;,&quot;PIRATI (Czech Rep)&quot;,&quot;TOP9 (Czech Rep)&quot;,&quot;SZ (Czech Rep)&quot;,&quot;SPD (Czech Rep)&quot;,&quot;STAN (Czech Rep)&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;)
+GROUPS&lt;-c(&quot;ALDE&quot;,&quot;S&amp;D&quot;,&quot;EPP&quot;,&quot;GUE-NGL&quot;,&quot;ECR&quot;,&quot;new.non.pop&quot;,&quot;EPP&quot;,&quot;GREENS&quot;,&quot;new.RW.pop&quot;,&quot;EPP&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;EFDD&quot;,&quot;ENF&quot;)
+CZ&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(CZ$PARTIES),votes=c(CZ$LAST_POLLS),n_seats=21,method=&quot;dhondt&quot;)
+CZ.parties=CZ$PARTIES
+EPgroups=CZ$GROUP
+CZECH&lt;-data.frame(EPgroups,CZ.parties,seats)
+
+CZECH1&lt;-aggregate(seats~EPgroups,data=CZECH,sum)
+
+#DENMARK
+
+dk.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/DK-parliament/format/csv&quot;))
+Apolls&lt;-tail(dk.csv$A,3)
+Amean&lt;-mean(Apolls,na.rm=TRUE)
+Bpolls&lt;-tail(dk.csv$B,3)
+Bmean&lt;-mean(Bpolls,na.rm=TRUE)
+Cpolls&lt;-tail(dk.csv$C,3)
+Cmean&lt;-mean(Cpolls,na.rm=TRUE)
+Fpolls&lt;-tail(dk.csv$F,3)
+Fmean&lt;-mean(Fpolls,na.rm=TRUE)
+Ipolls&lt;-tail(dk.csv$I,3)
+Imean&lt;-mean(Ipolls,na.rm=TRUE)
+Opolls&lt;-tail(dk.csv$O,3)
+Omean&lt;-mean(Opolls,na.rm=TRUE)
+RGpolls&lt;-tail(dk.csv$RG,3)
+RGmean&lt;-mean(RGpolls,na.rm=TRUE)
+Vpolls&lt;-tail(dk.csv$V,3)
+Vmean&lt;-mean(Vpolls,na.rm=TRUE)
+Kpolls&lt;-tail(dk.csv$K,3)
+Kmean&lt;-mean(Kpolls,na.rm=TRUE)
+altpolls&lt;-tail(dk.csv$Alt,3)
+altmean&lt;-mean(altpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(Amean,Bmean,Cmean,Fmean,Imean,Omean,RGmean,Vmean,Kmean,altmean,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;A (Denmark)&quot;,&quot;B (Denmark)&quot;,&quot;C (Denmark)&quot;,&quot;F (Denmark)&quot;,&quot;I (Denmark)&quot;,&quot;O (Denmark)&quot;,&quot;RG (Denmark)&quot;,&quot;V (Denmark)&quot;,&quot;K (Denmark)&quot;,&quot;ALT (Denmark)&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;)
+GROUPS&lt;-c(&quot;S&amp;D&quot;,&quot;ALDE&quot;,&quot;EPP&quot;,&quot;GREENS&quot;,&quot;ALDE&quot;,&quot;ECR&quot;,&quot;GUE-NGL&quot;,&quot;ALDE&quot;,&quot;EPP&quot;,&quot;new.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;new.RW.pop&quot;,&quot;EFDD&quot;,&quot;ENF&quot;)
+DK&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(DK$PARTIES),votes=c(DK$LAST_POLLS),n_seats=14,method=&quot;dhondt&quot;)
+DK.parties=DK$PARTIES
+EPgroups=DK$GROUP
+DENMARK&lt;-data.frame(EPgroups,DK.parties,seats)
+
+DENMARK1&lt;-aggregate(seats~EPgroups,data=DENMARK,sum)
+
+#ESTONIA
+ee.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/EE-parliament/format/csv&quot;))
+ekrepolls&lt;-tail(ee.csv$EKRE,3)
+ekremean&lt;-mean(ekrepolls,na.rm=TRUE)
+greenpolls&lt;-tail(ee.csv$Green,3)
+greenmean&lt;-mean(greenpolls,na.rm=TRUE)
+irlpolls&lt;-tail(ee.csv$IRL,3)
+irlmean&lt;-mean(irlpolls,na.rm=TRUE)
+keskpolls&lt;-tail(ee.csv$Kesk,3)
+keskmean&lt;-mean(keskpolls,na.rm=TRUE)
+refpolls&lt;-tail(ee.csv$Ref,3)
+refmean&lt;-mean(refpolls,na.rm=TRUE)
+sdepolls&lt;-tail(ee.csv$SDE,3)
+sdemean&lt;-mean(sdepolls,na.rm=TRUE)
+evapolls&lt;-tail(ee.csv$EVA,3)
+evamean&lt;-mean(evapolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(ekremean,greenmean,irlmean,keskmean,refmean,sdemean,evamean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;EKRE (Estonia)&quot;,&quot;GREEN (Estonia)&quot;,&quot;IRL (Estonia)&quot;,&quot;KESK (Estonia)&quot;,&quot;Ref (Estonia)&quot;,&quot;SDE (Estonia)&quot;,&quot;EVA (Estonia)&quot;,&quot;NA1&quot;,&quot;NA2&quot;,&quot;NA3&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;)
+GROUPS&lt;-c(&quot;new.RW.pop&quot;,&quot;GREENS&quot;,&quot;EPP&quot;,&quot;ALDE&quot;,&quot;ALDE&quot;,&quot;S&amp;D&quot;,&quot;new.non.pop&quot;,&quot;GUE-NGL&quot;,&quot;ECR&quot;,&quot;EFDD&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ENF&quot;)
+EE&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(EE$PARTIES),votes=c(EE$LAST_POLLS),n_seats=7,method=&quot;dhondt&quot;)
+EE.parties=EE$PARTIES
+EPgroups=EE$GROUP
+ESTONIA&lt;-data.frame(EPgroups,EE.parties,seats)
+
+ESTONIA1&lt;-aggregate(seats~EPgroups,data=ESTONIA,sum)
+
+#FINLAND
+
+fn.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/FI-parliament/format/csv&quot;))
+kdpolls&lt;-tail(fn.csv$KD,3)
+kdmean&lt;-mean(kdpolls,na.rm=TRUE)
+keskfnpolls&lt;-tail(fn.csv$KESK,3)
+keskfnmean&lt;-mean(keskfnpolls,na.rm=TRUE)
+kokpolls&lt;-tail(fn.csv$KOK,3)
+kokmean&lt;-mean(kokpolls,na.rm=TRUE)
+psfnpolls&lt;-tail(fn.csv$PS,3)
+psfnmean&lt;-mean(psfnpolls,na.rm=TRUE)
+sdpfnpolls&lt;-tail(fn.csv$SDP,3)
+sdpfnmean&lt;-mean(sdpfnpolls,na.rm=TRUE)
+sfppolls&lt;-tail(fn.csv$SFP,3)
+sfpmean&lt;-mean(sfppolls,na.rm=TRUE)
+vaspolls&lt;-tail(fn.csv$VAS,3)
+vasmean&lt;-mean(vaspolls,na.rm=TRUE)
+vihrpolls&lt;-tail(fn.csv$VIHR,3)
+vihrmean&lt;-mean(vihrpolls,na.rm=TRUE)
+sinpolls&lt;-tail(fn.csv$SIN,3)
+sinmean&lt;-mean(sinpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(kdmean,keskfnmean,kokmean,psfnmean,sdpfnmean,sfpmean,vasmean,vihrmean,sinmean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;KD (Finland)&quot;,&quot;KESK (Finland)&quot;,&quot;KOK (Finland)&quot;,&quot;PS (Finland)&quot;,&quot;SDP (Finland)&quot;,&quot;SFP (Finland)&quot;,&quot;VAS (Finland)&quot;,&quot;VIHR (Finland)&quot;,&quot;SIN (Finland)&quot;,&quot;NA3&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;)
+GROUPS&lt;-c(&quot;EPP&quot;,&quot;ALDE&quot;,&quot;EPP&quot;,&quot;ECR&quot;,&quot;S&amp;D&quot;,&quot;ALDE&quot;,&quot;GUE-NGL&quot;,&quot;GREENS&quot;,&quot;ECR&quot;,&quot;EFDD&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;new.RW.pop&quot;,&quot;ENF&quot;)
+FN&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(FN$PARTIES),votes=c(FN$LAST_POLLS),n_seats=14,method=&quot;dhondt&quot;)
+FN.parties=FN$PARTIES
+EPgroups=FN$GROUP
+FINLAND&lt;-data.frame(EPgroups,FN.parties,seats)
+
+FINLAND1&lt;-aggregate(seats~EPgroups,data=FINLAND,sum)
+
+#FRANCE
+fr.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/FR-2019-EP/format/csv&quot;))
+dlfpolls&lt;-tail(fr.csv$DLF,3)
+dlfmean&lt;-mean(dlfpolls,na.rm=TRUE)
+eelvpolls&lt;-tail(fr.csv$EELV,3)
+eelvmean&lt;-mean(eelvpolls,na.rm=TRUE)
+fipolls&lt;-tail(fr.csv$FI,3)
+fimean&lt;-mean(fipolls,na.rm=TRUE)
+fnpolls&lt;-tail(fr.csv$FN,3)
+fnmean&lt;-mean(fnpolls,na.rm=TRUE)
+npapolls&lt;-tail(fr.csv$NPA,3)
+npamean&lt;-mean(npapolls,na.rm=TRUE)
+psfrpolls&lt;-tail(fr.csv$PS,3)
+psfrmean&lt;-mean(psfrpolls,na.rm=TRUE)
+rempolls&lt;-tail(fr.csv$REM,3)
+remmean&lt;-mean(rempolls,na.rm=TRUE)
+lrpolls&lt;-tail(fr.csv$LR,3)
+lrmean&lt;-mean(lrpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(dlfmean,eelvmean,fimean,fnmean,npamean,psfrmean,remmean,lrmean,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;Debout la France (France)&quot;,&quot;Ecolo (France)&quot;,&quot;France Insoumise (France)&quot;,&quot;FN (France)&quot;,&quot;Parti anticapitalist (France)&quot;,&quot;PS (France)&quot;,&quot;En Marche (France)&quot;,&quot;Les Repub. (France)&quot;,&quot;NA2&quot;,&quot;NA3&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;)
+GROUPS&lt;-c(&quot;EFDD&quot;,&quot;GREENS&quot;,&quot;GUE-NGL&quot;,&quot;ENF&quot;,&quot;GUE-NGL&quot;,&quot;S&amp;D&quot;,&quot;new.non.pop&quot;,&quot;EPP&quot;,&quot;ECR&quot;,&quot;ni.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.RW.pop&quot;,&quot;ALDE&quot;,&quot;ni.RW.pop&quot;)
+FR&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(FR$PARTIES),votes=c(FR$LAST_POLLS),n_seats=79,method=&quot;dhondt&quot;)
+FR.parties=FR$PARTIES
+EPgroups=FR$GROUP
+FRANCE&lt;-data.frame(EPgroups,FR.parties,seats)
+
+FRANCE1&lt;-aggregate(seats~EPgroups,data=FRANCE,sum)
+
+#GREECE
+gr.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/GR-parliament/format/csv&quot;))
+anelpolls&lt;-tail(gr.csv$ANEL,3)
+anelmean&lt;-mean(anelpolls,na.rm=TRUE)
+grxapolls&lt;-tail(gr.csv$GRXA,3)
+grxamean&lt;-mean(grxapolls,na.rm=TRUE)
+kkepolls&lt;-tail(gr.csv$KKE,3)
+kkemean&lt;-mean(kkepolls,na.rm=TRUE)
+ndpolls&lt;-tail(gr.csv$ND,3)
+ndmean&lt;-mean(ndpolls,na.rm=TRUE)
+syrizapolls&lt;-tail(gr.csv$SYRIZA,3)
+syrizamean&lt;-mean(syrizapolls,na.rm=TRUE)
+ekpolls&lt;-tail(gr.csv$EK,3)
+ekmean&lt;-mean(ekpolls,na.rm=TRUE)
+laepolls&lt;-tail(gr.csv$LAE,3)
+laemean&lt;-mean(laepolls,na.rm=TRUE)
+pepolls&lt;-tail(gr.csv$PE,3)
+pemean&lt;-mean(pepolls,na.rm=TRUE)
+kapolls&lt;-tail(gr.csv$KA,3)
+kamean&lt;-mean(kapolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(anelmean,grxamean,kkemean,ndmean,syrizamean,ekmean,laemean,pemean,kamean,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;ANEL (Greece)&quot;,&quot;GRXA (Greece)&quot;,&quot;KKE (Greece)&quot;,&quot;ND (Greece)&quot;,&quot;SYRIZA (Greece)&quot;,&quot;EK (Greece)&quot;,&quot;LAE (Greece)&quot;,&quot;PE (Greece)&quot;,&quot;KA (Greece)&quot;,&quot;NA3&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;)
+GROUPS&lt;-c(&quot;ECR&quot;,&quot;ni.RW.pop&quot;,&quot;ni.LW.pop&quot;,&quot;EPP&quot;,&quot;GUE-NGL&quot;,&quot;ALDE&quot;,&quot;GUE-NGL&quot;,&quot;ni.RW.pop&quot;,&quot;S&amp;D&quot;,&quot;ni.non.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.RW.pop&quot;,&quot;new.non.pop&quot;,&quot;EFDD&quot;,&quot;GREENS&quot;,&quot;ENF&quot;)
+GR&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(GR$PARTIES),votes=c(GR$LAST_POLLS),n_seats=21,method=&quot;dhondt&quot;)
+GR.parties=GR$PARTIES
+EPgroups=GR$GROUP
+GREECE&lt;-data.frame(EPgroups,GR.parties,seats)
+
+GREECE1&lt;-aggregate(seats~EPgroups,data=GREECE,sum)
+
+#HUNGARY
+hu.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/HU-parliament/format/csv&quot;))
+dkpolls&lt;-tail(hu.csv$DK,3)
+dkmean&lt;-mean(dkpolls,na.rm=TRUE)
+fidespolls&lt;-tail(hu.csv$FideszKDNP,3)
+fidesmean&lt;-mean(fidespolls,na.rm=TRUE)
+jobbikpolls&lt;-tail(hu.csv$Jobbik,3)
+jobbikmean&lt;-mean(jobbikpolls,na.rm=TRUE)
+lmppolls&lt;-tail(hu.csv$LMP,3)
+lmpmean&lt;-mean(lmppolls,na.rm=TRUE)
+mszppolls&lt;-tail(hu.csv$MSZP,3)
+mszpmean&lt;-mean(mszppolls,na.rm=TRUE)
+mkkppolls&lt;-tail(hu.csv$MKKP,3)
+mkkpmean&lt;-mean(mkkppolls,na.rm=TRUE)
+mmpolls&lt;-tail(hu.csv$MM,3)
+mmmean&lt;-mean(mmpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(dkmean,fidesmean,jobbikmean,lmpmean,mszpmean,mkkpmean,mmmean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;DK (Hungary)&quot;,&quot;FideszKDNP (Hungary)&quot;,&quot;JOBBIK (Hungary)&quot;,&quot;LMP (Hungary)&quot;,&quot;MSZP (Hungary)&quot;,&quot;MKKP (Hungary)&quot;,&quot;MM (Hungary)&quot;,&quot;NA2&quot;,&quot;NA3&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;)
+GROUPS&lt;-c(&quot;S&amp;D&quot;,&quot;EPP&quot;,&quot;ni.RW.pop&quot;,&quot;GREENS&quot;,&quot;S&amp;D&quot;,&quot;ni.non.pop&quot;,&quot;ALDE&quot;,&quot;GUE-NGL&quot;,&quot;ECR&quot;,&quot;EFDD&quot;,&quot;ni.LW.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;new.RW.pop&quot;,&quot;ENF&quot;)
+HU&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(HU$PARTIES),votes=c(HU$LAST_POLLS),n_seats=21,method=&quot;dhondt&quot;)
+HU.parties=HU$PARTIES
+EPgroups=HU$GROUP
+HUNGARY&lt;-data.frame(EPgroups,HU.parties,seats)
+
+HUNGARY1&lt;-aggregate(seats~EPgroups,data=HUNGARY,sum)
+
+#IRELAND
+ir.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/IE-parliament/format/csv&quot;))
+ffpolls&lt;-tail(ir.csv$FF,3)
+ffmean&lt;-mean(ffpolls,na.rm=TRUE)
+fgpolls&lt;-tail(ir.csv$FG,3)
+fgmean&lt;-mean(fgpolls,na.rm=TRUE)
+gppolls&lt;-tail(ir.csv$GP,3)
+gpmean&lt;-mean(gppolls,na.rm=TRUE)
+labpolls&lt;-tail(ir.csv$Lab,3)
+labmean&lt;-mean(labpolls,na.rm=TRUE)
+ripolls&lt;-tail(ir.csv$RI,3)
+rimean&lt;-mean(ripolls,na.rm=TRUE)
+sdpolls&lt;-tail(ir.csv$SD,3)
+sdmean&lt;-mean(sdpolls,na.rm=TRUE)
+sfpolls&lt;-tail(ir.csv$SF,3)
+sfmean&lt;-mean(sfpolls,na.rm=TRUE)
+spbppolls&lt;-tail(ir.csv$SPBP,3)
+spbpmean&lt;-mean(spbppolls,na.rm=TRUE)
+iapolls&lt;-tail(ir.csv$IA,3)
+iamean&lt;-mean(iapolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(ffmean,fgmean,gpmean,labmean,rimean,sdmean,sfmean,spbpmean,iamean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;Finna Fail (Ireland)&quot;,&quot;Fine Gael (Ireland)&quot;,&quot;Green Party (Ireland)&quot;,&quot;Labour (Ireland)&quot;,&quot;Renua Ireland (Ireland)&quot;,&quot;Social Democrats (Ireland)&quot;,&quot;Sinn Fein (Ireland)&quot;,&quot;S-PBP (Ireland)&quot;,&quot;Independent Alliance (Ireland)&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;)
+GROUPS&lt;-c(&quot;ALDE&quot;,&quot;EPP&quot;,&quot;GREENS&quot;,&quot;S&amp;D&quot;,&quot;new.non.pop&quot;,&quot;new.non.pop&quot;,&quot;GUE-NGL&quot;,&quot;GUE-NGL&quot;,&quot;new.non.pop&quot;,&quot;EFDD&quot;,&quot;ni.LW.pop&quot;,&quot;new.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;new.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ECR&quot;,&quot;ENF&quot;)
+IR&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(IR$PARTIES),votes=c(IR$LAST_POLLS),n_seats=13,method=&quot;dhondt&quot;)
+IR.parties=IR$PARTIES
+EPgroups=IR$GROUP
+IRELAND&lt;-data.frame(EPgroups,IR.parties,seats)
+
+IRELAND1&lt;-aggregate(seats~EPgroups,data=IRELAND,sum)
+
+#ITALY
+it.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/IT-parliament/format/csv&quot;))
+lnpolls&lt;-tail(it.csv$LN,3)
+lnmean&lt;-mean(lnpolls,na.rm=TRUE)
+pdITpolls&lt;-tail(it.csv$PD,3)
+pdITmean&lt;-mean(pdITpolls,na.rm=TRUE)
+m5spolls&lt;-tail(it.csv$M5S,3)
+m5smean&lt;-mean(m5spolls,na.rm=TRUE)
+fdipolls&lt;-tail(it.csv$FdI,3)
+fdimean&lt;-mean(fdipolls,na.rm=TRUE)
+fiITpolls&lt;-tail(it.csv$FI,3)
+fiITmean&lt;-mean(fiITpolls,na.rm=TRUE)
+leupolls&lt;-tail(it.csv$LeU,3)
+leumean&lt;-mean(leupolls,na.rm=TRUE)
+epolls&lt;-tail(it.csv$E,3)
+emean&lt;-mean(epolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(lnmean,pdITmean,m5smean,fdimean,fiITmean,leumean,emean,0,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;Lega (Italy)&quot;,&quot;Partito Democratico (Italy)&quot;,&quot;M5S (Italy)&quot;,&quot;Fratelli d'Italia (Italy)&quot;,&quot;Forza Italia (Italy)&quot;,&quot;Liberie Uguali (Italy)&quot;,&quot;+Europa (Italy)&quot;,&quot;NA6&quot;,&quot;NA7&quot;,&quot;NA8&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;)
+GROUPS&lt;-c(&quot;ENF&quot;,&quot;S&amp;D&quot;,&quot;EFDD&quot;,&quot;ni.RW.pop&quot;,&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;new.non.pop&quot;,&quot;GUE-NGL&quot;,&quot;ni.LW.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ECR&quot;,&quot;GREENS&quot;,&quot;ALDE&quot;,&quot;ni.RW.pop&quot;)
+IT&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(IT$PARTIES),votes=c(IT$LAST_POLLS),n_seats=76,method=&quot;dhondt&quot;)
+IT.parties=IT$PARTIES
+EPgroups=IT$GROUP
+ITALY&lt;-data.frame(EPgroups,IT.parties,seats)
+
+ITALY1&lt;-aggregate(seats~EPgroups,data=ITALY,sum)
+
+#LATVIA
+lv.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/LV-parliament/format/csv&quot;))
+lrapolls&lt;-tail(lv.csv$LRA,3)
+lramean&lt;-mean(lrapolls,na.rm=TRUE)
+natapolls&lt;-tail(lv.csv$NatA,3)
+natamean&lt;-mean(natapolls,na.rm=TRUE)
+nslpolls&lt;-tail(lv.csv$NSL,3)
+nslmean&lt;-mean(nslpolls,na.rm=TRUE)
+sdpspolls&lt;-tail(lv.csv$SDPS,3)
+sdpsmean&lt;-mean(sdpspolls,na.rm=TRUE)
+vienotibapolls&lt;-tail(lv.csv$V,3)
+vienotibamean&lt;-mean(vienotibapolls,na.rm=TRUE)
+zzspolls&lt;-tail(lv.csv$ZZS,3)
+zzsmean&lt;-mean(zzspolls,na.rm=TRUE)
+jkppolls&lt;-tail(lv.csv$JKP,3)
+jkpmean&lt;-mean(jkppolls,na.rm=TRUE)
+lkspolls&lt;-tail(lv.csv$LKS,3)
+lksmean&lt;-mean(lkspolls,na.rm=TRUE)
+parpolls&lt;-tail(lv.csv$PAR,3)
+parmean&lt;-mean(parpolls,na.rm=TRUE)
+kpvpolls&lt;-tail(lv.csv$KPV,3)
+kpvmean&lt;-mean(kpvpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(lramean,natamean,nslmean,sdpsmean,vienotibamean,zzsmean,jkpmean,lksmean,parmean,kpvmean,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;LRA (Latvia)&quot;,&quot;NatA (Latvia)&quot;,&quot;NSL (Latvia)&quot;,&quot;Saskana (Latvia)&quot;,&quot;Vienotiba (Latvia)&quot;,&quot;ZZS (Latvia)&quot;,&quot;JKP (Latvia)&quot;,&quot;LKS (Latvia)&quot;,&quot;PAR (Latvia)&quot;,&quot;KPV (Latvia)&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;)
+GROUPS&lt;-c(&quot;new.non.pop&quot;,&quot;ECR&quot;,&quot;ni.RW.pop&quot;,&quot;S&amp;D&quot;,&quot;EPP&quot;,&quot;ALDE&quot;,&quot;new.non.pop&quot;,&quot;GREENS&quot;,&quot;EPP&quot;,&quot;new.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;EFDD&quot;,&quot;GUE-NGL&quot;,&quot;ENF&quot;)
+LV&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(LV$PARTIES),votes=c(LV$LAST_POLLS),n_seats=8,method=&quot;dhondt&quot;)
+LV.parties=LV$PARTIES
+EPgroups=LV$GROUP
+LATVIA&lt;-data.frame(EPgroups,LV.parties,seats)
+
+LATVIA1&lt;-aggregate(seats~EPgroups,data=LATVIA,sum)
+
+#LITHUANIA
+lt.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/LT-parliament/format/csv&quot;))
+dppolls&lt;-tail(lt.csv$DP,3)
+dpmean&lt;-mean(dppolls,na.rm=TRUE)
+llrapolls&lt;-tail(lt.csv$LLRA,3)
+llramean&lt;-mean(llrapolls,na.rm=TRUE)
+lrlspolls&lt;-tail(lt.csv$LRLS,3)
+lrlsmean&lt;-mean(lrlspolls,na.rm=TRUE)
+lsdppolls&lt;-tail(lt.csv$LSDP,3)
+lsdpmean&lt;-mean(lsdppolls,na.rm=TRUE)
+lvzspolls&lt;-tail(lt.csv$LVZS,3)
+lvzsmean&lt;-mean(lvzspolls,na.rm=TRUE)
+tskdpolls&lt;-tail(lt.csv$TSKD,3)
+tskdmean&lt;-mean(tskdpolls,na.rm=TRUE)
+ttpolls&lt;-tail(lt.csv$TT,3)
+ttmean&lt;-mean(ttpolls,na.rm=TRUE)
+LSDDPpolls&lt;-tail(lt.csv$LSDDP,3)
+LSDDPmean&lt;-mean(LSDDPpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(dpmean,llramean,lrlsmean,lsdpmean,lvzsmean,tskdmean,ttmean,LSDDPmean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;Darbo Partija (Lithuania)&quot;,&quot;LLRA (Lithuania)&quot;,&quot;Liberaly Sajudis (Lithuania)&quot;,&quot;LSDP (Lithuania)&quot;,&quot;Lietuvos (Lithuania)&quot;,&quot;TS-KD (Lithuania)&quot;,&quot;TT (Lithuania)&quot;,&quot;LSDDP (Lithuania)&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;,&quot;NA15&quot;,&quot;NA16&quot;)
+GROUPS&lt;-c(&quot;ALDE&quot;,&quot;ECR&quot;,&quot;ALDE&quot;,&quot;S&amp;D&quot;,&quot;GREENS&quot;,&quot;EPP&quot;,&quot;EFDD&quot;,&quot;S&amp;D&quot;,&quot;GUE-NGL&quot;,&quot;new.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ENF&quot;)
+LT&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(LT$PARTIES),votes=c(LT$LAST_POLLS),n_seats=11,method=&quot;dhondt&quot;)</code></pre>
+<pre><code>## [1] &quot;IMPORTANT:  10 seats had been allocated. There is(are) 1 seat(s) with tie.&quot;
+## [1] &quot;Parties in tie:&quot; &quot;5&quot;               &quot;16&quot;</code></pre>
+<pre class="r"><code>LT.parties=LT$PARTIES
+EPgroups=LT$GROUP
+LITHUANIA&lt;-data.frame(EPgroups,LT.parties,seats)
+
+LITHUANIA1&lt;-aggregate(seats~EPgroups,data=LITHUANIA,sum)
+
+#LUXEMBOURG
+lu.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/LU-parliament/format/csv&quot;))
+adrpolls&lt;-tail(lu.csv$ADR,3)
+adrmean&lt;-mean(adrpolls,na.rm=TRUE)
+csvpolls&lt;-tail(lu.csv$CSV,3)
+csvmean&lt;-mean(csvpolls,na.rm=TRUE)
+dgpolls&lt;-tail(lu.csv$DG,3)
+dgmean&lt;-mean(dgpolls,na.rm=TRUE)
+dlpolls&lt;-tail(lu.csv$DL,3)
+dlmean&lt;-mean(dlpolls,na.rm=TRUE)
+dpLUpolls&lt;-tail(lu.csv$DP,3)
+dpLUmean&lt;-mean(dpLUpolls,na.rm=TRUE)
+lsappolls&lt;-tail(lu.csv$LSAP,3)
+lsapmean&lt;-mean(lsappolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(adrmean,csvmean,dgmean,dlmean,dpLUmean,lsapmean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;ADR (Luxembourg)&quot;,&quot;CSV (Luxembourg)&quot;,&quot;Dei Greng (Luxembourg)&quot;,&quot;Dei Lenk (Luxembourg)&quot;,&quot;DP (Luxembourg)&quot;,&quot;LSAP (Luxembourg)&quot;,&quot;NA1&quot;,&quot;NA2&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;)
+GROUPS&lt;-c(&quot;ECR&quot;,&quot;EPP&quot;,&quot;GREENS&quot;,&quot;GUE-NGL&quot;,&quot;ALDE&quot;,&quot;S&amp;D&quot;,&quot;EFDD&quot;,&quot;new.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ENF&quot;)
+LU&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(LU$PARTIES),votes=c(LU$LAST_POLLS),n_seats=6,method=&quot;dhondt&quot;)
+LU.parties=LU$PARTIES
+EPgroups=LU$GROUP
+LUXEMBOURG&lt;-data.frame(EPgroups,LU.parties,seats)
+
+LUXEMBOURG1&lt;-aggregate(seats~EPgroups,data=LUXEMBOURG,sum)
+
+#MALTA
+mt.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/MT-parliament/format/csv&quot;))
+adpolls&lt;-tail(mt.csv$AD,3)
+admean&lt;-mean(adpolls,na.rm=TRUE)
+plpolls&lt;-tail(mt.csv$PL,3)
+plmean&lt;-mean(plpolls,na.rm=TRUE)
+pnpolls&lt;-tail(mt.csv$PN,3)
+pnmean&lt;-mean(pnpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(admean,plmean,pnmean,0,0,0,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;Alternattiva Demokratika (Malta)&quot;,&quot;Partit Laburista (Malta)&quot;,&quot;Partit Nazzjonalista (Malta)&quot;,&quot;NA3&quot;,&quot;NA4&quot;,&quot;NA5&quot;,&quot;NA1&quot;,&quot;NA2&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;)
+GROUPS&lt;-c(&quot;GREENS&quot;,&quot;S&amp;D&quot;,&quot;EPP&quot;,&quot;GUE-NGL&quot;,&quot;ALDE&quot;,&quot;ECR&quot;,&quot;EFDD&quot;,&quot;new.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ENF&quot;)
+MT&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(MT$PARTIES),votes=c(MT$LAST_POLLS),n_seats=6,method=&quot;dhondt&quot;)
+MT.parties=MT$PARTIES
+EPgroups=MT$GROUP
+MALTA&lt;-data.frame(EPgroups,MT.parties,seats)
+
+MALTA1&lt;-aggregate(seats~EPgroups,data=MALTA,sum)
+
+#NETHERLANDS
+nl.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/NL-parliament/format/csv&quot;))
+cdapolls&lt;-tail(nl.csv$cda,3)
+cdamean&lt;-mean(cdapolls,na.rm=TRUE)
+cupolls&lt;-tail(nl.csv$cu,3)
+cumean&lt;-mean(cupolls,na.rm=TRUE)
+d66polls&lt;-tail(nl.csv$d66,3)
+d66mean&lt;-mean(d66polls,na.rm=TRUE)
+glpolls&lt;-tail(nl.csv$gl,3)
+glmean&lt;-mean(glpolls,na.rm=TRUE)
+p5Opluspolls&lt;-tail(nl.csv$p50plus,3)
+p50plusmean&lt;-mean(p5Opluspolls,na.rm=TRUE)
+pvdapolls&lt;-tail(nl.csv$pvda,3)
+pvdamean&lt;-mean(pvdapolls,na.rm=TRUE)
+pvddpolls&lt;-tail(nl.csv$pvdd,3)
+pvddmean&lt;-mean(pvddpolls,na.rm=TRUE)
+pvvpolls&lt;-tail(nl.csv$pvv,3)
+pvvmean&lt;-mean(pvvpolls,na.rm=TRUE)
+SPpolls&lt;-tail(nl.csv$sp,3)
+SPmean&lt;-mean(SPpolls,na.rm=TRUE)
+vvdpolls&lt;-tail(nl.csv$vvd,3)
+vvdmean&lt;-mean(vvdpolls,na.rm=TRUE)
+denkpolls&lt;-tail(nl.csv$denk,3)
+denkmean&lt;-mean(denkpolls,na.rm=TRUE)
+fvdpolls&lt;-tail(nl.csv$fvd,3)
+fvdmean&lt;-mean(fvdpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(cdamean,cumean,d66mean,glmean,p50plusmean,pvdamean,pvddmean,pvvmean,SPmean,vvdmean,denkmean,fvdmean,0,0,0,0)
+PARTIES&lt;-c(&quot;CDA (Netherlands)&quot;,&quot;Christian Union (Netherlands)&quot;,&quot;D66 (Netherlands)&quot;,&quot;Green Left (Netherlands)&quot;,&quot;50plus (Netherlands)&quot;,&quot;PVDA (Netherlands)&quot;,&quot;Party for Animals (Netherlands)&quot;,&quot;Party for freedom (Netherlands)&quot;,&quot;SP (Netherlands)&quot;,&quot;VVD (Netherlands)&quot;,&quot;Denk (Netherlands)&quot;,&quot;Forum for Democracy (Netherlands)&quot;,&quot;NA13&quot;,&quot;NA14&quot;,&quot;NA15&quot;,&quot;NA16&quot;)
+GROUPS&lt;-c(&quot;EPP&quot;,&quot;ECR&quot;,&quot;ALDE&quot;,&quot;GREENS&quot;,&quot;new.non.pop&quot;,&quot;S&amp;D&quot;,&quot;GUE-NGL&quot;,&quot;ENF&quot;,&quot;GUE-NGL&quot;,&quot;ALDE&quot;,&quot;new.LW.pop&quot;,&quot;new.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;EFDD&quot;,&quot;ni.RW.pop&quot;)
+NL&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(NL$PARTIES),votes=c(NL$LAST_POLLS),n_seats=29,method=&quot;dhondt&quot;)
+NL.parties=NL$PARTIES
+EPgroups=NL$GROUP
+NETHERLANDS&lt;-data.frame(EPgroups,NL.parties,seats)
+
+NETHERLANDS1&lt;-aggregate(seats~EPgroups,data=NETHERLANDS,sum)
+
+#POLAND
+pl.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/PL-parliament/format/csv&quot;))
+PiSpolls&lt;-tail(pl.csv$PiS,3)
+PiSmean&lt;-mean(PiSpolls,na.rm=TRUE)
+popolls&lt;-tail(pl.csv$PO,3)
+pomean&lt;-mean(popolls,na.rm=TRUE)
+pslpolls&lt;-tail(pl.csv$PSL,3)
+pslmean&lt;-mean(pslpolls,na.rm=TRUE)
+sldpolls&lt;-tail(pl.csv$SLD,3)
+sldmean&lt;-mean(sldpolls,na.rm=TRUE)
+libpolls&lt;-tail(pl.csv$Lib,3)
+libmean&lt;-mean(libpolls,na.rm=TRUE)
+kukiz15polls&lt;-tail(pl.csv$Kukiz15,3)
+kukiz15mean&lt;-mean(kukiz15polls,na.rm=TRUE)
+npolls&lt;-tail(pl.csv$N,3)
+nmean&lt;-mean(npolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(PiSmean,pomean,pslmean,sldmean,libmean,kukiz15mean,nmean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;PiS (Poland)&quot;,&quot;PO (Poland)&quot;,&quot;PSL (Poland)&quot;,&quot;SLD (Poland)&quot;,&quot;Wolnosc (Poland)&quot;,&quot;Kukiz15 (Poland)&quot;,&quot;Nowoczesna (Poland)&quot;,&quot;NA2&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;,&quot;NA15&quot;)
+GROUPS&lt;-c(&quot;ECR&quot;,&quot;EPP&quot;,&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;EFDD&quot;,&quot;new.RW.pop&quot;,&quot;ALDE&quot;,&quot;GUE-NGL&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;GREENS&quot;,&quot;ENF&quot;)
+PL&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(PL$PARTIES),votes=c(PL$LAST_POLLS),n_seats=52,method=&quot;dhondt&quot;)
+PL.parties=PL$PARTIES
+EPgroups=PL$GROUP
+POLAND&lt;-data.frame(EPgroups,PL.parties,seats)
+
+POLAND1&lt;-aggregate(seats~EPgroups,data=POLAND,sum)
+
+#PORTUGAL 
+pt.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/PT-parliament/format/csv&quot;))
+bepolls&lt;-tail(pt.csv$BE,3)
+bemean&lt;-mean(bepolls,na.rm=TRUE)
+cdspppolls&lt;-tail(pt.csv$CDSPP,3)
+cdsppmean&lt;-mean(cdspppolls,na.rm=TRUE)
+cdupolls&lt;-tail(pt.csv$CDU,3)
+cdumean&lt;-mean(cdupolls,na.rm=TRUE)
+ppdpsdpolls&lt;-tail(pt.csv$PPDPSD,3)
+ppdpsdmean&lt;-mean(ppdpsdpolls,na.rm=TRUE)
+psPTpolls&lt;-tail(pt.csv$PS,3)
+psPTmean&lt;-mean(psPTpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(bemean,cdsppmean,cdumean,ppdpsdmean,psPTmean,0,0,0,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;Bloco Esquerda (Portugal)&quot;,&quot;CDS-PP (Portugal)&quot;,&quot;CDU (Portugal)&quot;,&quot;PPD/PSD (Portugal)&quot;,&quot;PS (Portugal)&quot;,&quot;NA3&quot;,&quot;NA4&quot;,&quot;NA2&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;,&quot;NA15&quot;,&quot;NA16&quot;)
+GROUPS&lt;-c(&quot;GUE-NGL&quot;,&quot;EPP&quot;,&quot;GUE-NGL&quot;,&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;new.RW.pop&quot;,&quot;ALDE&quot;,&quot;EFDD&quot;,&quot;new.LW.pop&quot;,&quot;new.non.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;GREENS&quot;,&quot;ECR&quot;,&quot;ENF&quot;)
+PT&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(PT$PARTIES),votes=c(PT$LAST_POLLS),n_seats=21,method=&quot;dhondt&quot;)
+PT.parties=PT$PARTIES
+EPgroups=PT$GROUP
+PORTUGAL&lt;-data.frame(EPgroups,PT.parties,seats)
+
+PORTUGAL1&lt;-aggregate(seats~EPgroups,data=PORTUGAL,sum)
+
+#ROMANIA
+ro.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/RO-parliament/format/csv&quot;))
+pmppolls&lt;-tail(ro.csv$PMP,3)
+pmpmean&lt;-mean(pmppolls,na.rm=TRUE)
+pnlpolls&lt;-tail(ro.csv$PNL,3)
+pnlmean&lt;-mean(pnlpolls,na.rm=TRUE)
+psdpolls&lt;-tail(ro.csv$PSD,3)
+psdmean&lt;-mean(psdpolls,na.rm=TRUE)
+udmrpolls&lt;-tail(ro.csv$UDMR,3)
+udmrmean&lt;-mean(udmrpolls,na.rm=TRUE)
+alderopolls&lt;-tail(ro.csv$ALDERO,3)
+alderomean&lt;-mean(alderopolls,na.rm=TRUE)
+usrpolls&lt;-tail(ro.csv$USR,3)
+usrmean&lt;-mean(usrpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(pmpmean,pnlmean,psdmean,udmrmean,alderomean,usrmean,0,0,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;PMP (Romania)&quot;,&quot;PNL (Romania)&quot;,&quot;PSD (Romania)&quot;,&quot;UDMR (Romania)&quot;,&quot;ALDERO (Romania)&quot;,&quot;USR (Romania)&quot;,&quot;NA4&quot;,&quot;NA2&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;,&quot;NA15&quot;,&quot;NA16&quot;)
+GROUPS&lt;-c(&quot;EPP&quot;,&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;EPP&quot;,&quot;ALDE&quot;,&quot;new.non.pop&quot;,&quot;GUE-NGL&quot;,&quot;EFDD&quot;,&quot;new.LW.pop&quot;,&quot;new.RW.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;GREENS&quot;,&quot;ECR&quot;,&quot;ENF&quot;)
+RO&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(RO$PARTIES),votes=c(RO$LAST_POLLS),n_seats=33,method=&quot;dhondt&quot;)
+RO.parties=RO$PARTIES
+EPgroups=RO$GROUP
+ROMANIA&lt;-data.frame(EPgroups,RO.parties,seats)
+
+ROMANIA1&lt;-aggregate(seats~EPgroups,data=ROMANIA,sum)
+
+#SWEDEN
+se.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/SE-parliament/format/csv&quot;))
+cSEpolls&lt;-tail(se.csv$C,3)
+cSEmean&lt;-mean(cSEpolls,na.rm=TRUE)
+kdSEpolls&lt;-tail(se.csv$KD,3)
+kdSEmean&lt;-mean(kdSEpolls,na.rm=TRUE)
+lSEpolls&lt;-tail(se.csv$L,3)
+lSEmean&lt;-mean(lSEpolls,na.rm=TRUE)
+mSEpolls&lt;-tail(se.csv$M,3)
+mSEmean&lt;-mean(mSEpolls,na.rm=TRUE)
+mpSEpolls&lt;-tail(se.csv$MP,3)
+mpSEmean&lt;-mean(mpSEpolls,na.rm=TRUE)
+sSEpolls&lt;-tail(se.csv$S,3)
+sSEmean&lt;-mean(sSEpolls,na.rm=TRUE)
+sdSEpolls&lt;-tail(se.csv$SD,3)
+sdSEmean&lt;-mean(sdSEpolls,na.rm=TRUE)
+vSEpolls&lt;-tail(se.csv$V,3)
+vSEmean&lt;-mean(vSEpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(cSEmean,kdSEmean,lSEmean,mSEmean,mpSEmean,sSEmean,sdSEmean,vSEmean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;Centerpartiet (Sweden)&quot;,&quot;Kristdemokraterna (Sweden)&quot;,&quot;Liberalerna (Sweden)&quot;,&quot;Moderaterna (Sweden)&quot;,&quot;Miljopartiet (Sweden)&quot;,&quot;Socialdemokraterna (Sweden)&quot;,&quot;Sverigedemokraterna (Sweden)&quot;,&quot;Vansterpartiet (Sweden)&quot;,&quot;NA9&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;,&quot;NA15&quot;,&quot;NA16&quot;)
+GROUPS&lt;-c(&quot;ALDE&quot;,&quot;EPP&quot;,&quot;ALDE&quot;,&quot;EPP&quot;,&quot;GREENS&quot;,&quot;S&amp;D&quot;,&quot;EFDD&quot;,&quot;GUE-NGL&quot;,&quot;new.LW.pop&quot;,&quot;new.RW.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.RW.pop&quot;,&quot;ni.non.pop&quot;,&quot;new.non.pop&quot;,&quot;ECR&quot;,&quot;ENF&quot;)
+SE&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(SE$PARTIES),votes=c(SE$LAST_POLLS),n_seats=21,method=&quot;dhondt&quot;)
+SE.parties=SE$PARTIES
+EPgroups=SE$GROUP
+SWEDEN&lt;-data.frame(EPgroups,SE.parties,seats)
+
+SWEDEN1&lt;-aggregate(seats~EPgroups,data=SWEDEN,sum)
+
+#SLOVENIA
+si.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/SI-parliament/format/csv&quot;))
+desuspolls&lt;-tail(si.csv$DeSUS,3)
+desusmean&lt;-mean(desuspolls,na.rm=TRUE)
+nsipolls&lt;-tail(si.csv$NSi,3)
+nsimean&lt;-mean(nsipolls,na.rm=TRUE)
+sdSIpolls&lt;-tail(si.csv$SD,3)
+sdSImean&lt;-mean(sdSIpolls,na.rm=TRUE)
+sdsSIpolls&lt;-tail(si.csv$SDS,3)
+sdsSImean&lt;-mean(sdsSIpolls,na.rm=TRUE)
+pabSIpolls&lt;-tail(si.csv$PAB,3)
+pabSImean&lt;-mean(pabSIpolls,na.rm=TRUE)
+smcpolls&lt;-tail(si.csv$SMC,3)
+smcmean&lt;-mean(smcpolls,na.rm=TRUE)
+snspolls&lt;-tail(si.csv$SNS,3)
+snsmean&lt;-mean(snspolls,na.rm=TRUE)
+theleftpolls&lt;-tail(si.csv$TheLeft,3)
+theleftmean&lt;-mean(theleftpolls,na.rm=TRUE)
+lmsSIpolls&lt;-tail(si.csv$LMS,3)
+lmsSImean&lt;-mean(lmsSIpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(desusmean,nsimean,sdSImean,sdsSImean,pabSImean,smcmean,snsmean,theleftmean,lmsSImean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;DeSUS (Slovenia)&quot;,&quot;N.Si (Slovenia)&quot;,&quot;SD (Slovenia)&quot;,&quot;SDS (Slovenia)&quot;,&quot;Stranka Alenke Bratusek (Slovenia)&quot;,&quot;SMC (Slovenia)&quot;,&quot;SNS (Slovenia)&quot;,&quot;Levica (Slovenia)&quot;,&quot;Marjana Sarca (Slovenia)&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;,&quot;NA15&quot;,&quot;NA16&quot;,&quot;NA17&quot;)
+GROUPS&lt;-c(&quot;ALDE&quot;,&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;EPP&quot;,&quot;ALDE&quot;,&quot;ALDE&quot;,&quot;ni.RW.pop&quot;,&quot;GUE-NGL&quot;,&quot;new.non.pop&quot;,&quot;new.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;ni.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;EFDD&quot;,&quot;ECR&quot;,&quot;GREENS&quot;,&quot;ENF&quot;)
+SI&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(SI$PARTIES),votes=c(SI$LAST_POLLS),n_seats=8,method=&quot;dhondt&quot;)
+SI.parties=SI$PARTIES
+EPgroups=SI$GROUP
+SLOVENIA&lt;-data.frame(EPgroups,SI.parties,seats)
+
+SLOVENIA1&lt;-aggregate(seats~EPgroups,data=SLOVENIA,sum)
+
+#SLOVAKIA
+sk.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/SK-parliament/format/csv&quot;))
+kdhSKpolls&lt;-tail(sk.csv$KDH,3)
+kdhSKmean&lt;-mean(kdhSKpolls,na.rm=TRUE)
+mosthidSKpolls&lt;-tail(sk.csv$Most_Hid,3)
+mosthidSKmean&lt;-mean(mosthidSKpolls,na.rm=TRUE)
+olanopolls&lt;-tail(sk.csv$OLaNO,3)
+olanomean&lt;-mean(olanopolls,na.rm=TRUE)
+sasSKpolls&lt;-tail(sk.csv$SaS,3)
+sasSKmean&lt;-mean(sasSKpolls,na.rm=TRUE)
+smerSDpolls&lt;-tail(sk.csv$Smer_SD,3)
+smerSDmean&lt;-mean(smerSDpolls,na.rm=TRUE)
+snsSKpolls&lt;-tail(sk.csv$SNS,3)
+snsSKmean&lt;-mean(snsSKpolls,na.rm=TRUE)
+smk.mkppolls&lt;-tail(sk.csv$SMK_MKP,3)
+smk.mkpmean&lt;-mean(smk.mkppolls,na.rm=TRUE)
+kotlebapolls&lt;-tail(sk.csv$Kotleba_LSNS,3)
+kotlebamean&lt;-mean(kotlebapolls,na.rm=TRUE)
+sme.rodinapolls&lt;-tail(sk.csv$Sme_Rodina,3)
+sme.rodinamean&lt;-mean(sme.rodinapolls,na.rm=TRUE)
+psSKpolls&lt;-tail(sk.csv$PS,3)
+psSKmean&lt;-mean(psSKpolls,na.rm=TRUE)
+spolupolls&lt;-tail(sk.csv$SPOLU,3)
+spolumean&lt;-mean(spolupolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(kdhSKmean,mosthidSKmean,olanomean,sasSKmean,smerSDmean,snsSKmean,smk.mkpmean,kotlebamean,sme.rodinamean,psSKmean,spolumean,0,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;KDH (Slovakia)&quot;,&quot;Most-Hid (Slovakia)&quot;,&quot;Obycajini L'udia (Slovakia)&quot;,&quot;SaS (Slovakia)&quot;,&quot;Smer-SD (Slovakia)&quot;,&quot;SNS (Slovakia)&quot;,&quot;SMK-MKP (Slovakia)&quot;,&quot;Kotleba-LSNS (Slovakia)&quot;,&quot;Sme-Rodina (Slovakia)&quot;,&quot;PS (Slovakia)&quot;,&quot;SPOLU (Slovakia)&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;,&quot;NA15&quot;,&quot;NA16&quot;,&quot;NA17&quot;,&quot;NA18&quot;,&quot;NA19&quot;)
+GROUPS&lt;-c(&quot;EPP&quot;,&quot;EPP&quot;,&quot;ECR&quot;,&quot;ECR&quot;,&quot;S&amp;D&quot;,&quot;EFDD&quot;,&quot;EPP&quot;,&quot;EFDD&quot;,&quot;new.RW.pop&quot;,&quot;new.non.pop&quot;,&quot;EPP&quot;,&quot;ni.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;ni.RW.pop&quot;,&quot;GREENS&quot;,&quot;GUE-NGL&quot;,&quot;new.LW.pop&quot;,&quot;ALDE&quot;,&quot;ENF&quot;)
+SK&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(SK$PARTIES),votes=c(SK$LAST_POLLS),n_seats=14,method=&quot;dhondt&quot;)
+SK.parties=SK$PARTIES
+EPgroups=SK$GROUP
+SLOVAKIA&lt;-data.frame(EPgroups,SK.parties,seats)
+
+SLOVAKIA1&lt;-aggregate(seats~EPgroups,data=SLOVAKIA,sum)
+
+#SPAIN
+es.csv&lt;-read.csv(url(&quot;https://pollofpolls.eu/get/polls/ES-parliament/format/csv&quot;))
+ppESpolls&lt;-tail(es.csv$pp,3)
+ppESmean&lt;-mean(ppESpolls,na.rm=TRUE)
+psoeESpolls&lt;-tail(es.csv$psoe,3)
+psoeESmean&lt;-mean(psoeESpolls,na.rm=TRUE)
+ercESpolls&lt;-tail(es.csv$erc,3)
+ercESmean&lt;-mean(ercESpolls,na.rm=TRUE)
+pnvESpolls&lt;-tail(es.csv$pnv,3)
+pnvESmean&lt;-mean(pnvESpolls,na.rm=TRUE)
+csESpolls&lt;-tail(es.csv$cs,3)
+csESmean&lt;-mean(csESpolls,na.rm=TRUE)
+voxpolls&lt;-tail(es.csv$vox,3)
+voxmean&lt;-mean(voxpolls,na.rm=TRUE)
+podemospolls&lt;-tail(es.csv$podemos,3)
+podemosmean&lt;-mean(podemospolls,na.rm=TRUE)
+pacmapolls&lt;-tail(es.csv$pacma,3)
+pacmamean&lt;-mean(pacmapolls,na.rm=TRUE)
+pdecatpolls&lt;-tail(es.csv$pdecat,3)
+pdecatmean&lt;-mean(pdecatpolls,na.rm=TRUE)
+
+LAST_POLLS&lt;-c(ppESmean,psoeESmean,ercESmean,pnvESmean,csESmean,voxmean,podemosmean,pacmamean,pdecatmean,0,0,0,0,0,0,0)
+PARTIES&lt;-c(&quot;Partido Popular (Spain)&quot;,&quot;PSOE (Spain)&quot;,&quot;Esquerra Republicana (Spain)&quot;,&quot;PNV (Spain)&quot;,&quot;Ciudadanos (Spain)&quot;,&quot;Vox (Spain)&quot;,&quot;Podemos (Spain)&quot;,&quot;PACMA (Spain)&quot;,&quot;PDeCAT (Spain)&quot;,&quot;NA10&quot;,&quot;NA11&quot;,&quot;NA12&quot;,&quot;NA13&quot;,&quot;NA14&quot;,&quot;NA15&quot;,&quot;NA16&quot;)
+GROUPS&lt;-c(&quot;EPP&quot;,&quot;S&amp;D&quot;,&quot;GREENS&quot;,&quot;ALDE&quot;,&quot;ALDE&quot;,&quot;ni.RW.pop&quot;,&quot;GUE-NGL&quot;,&quot;new.non.pop&quot;,&quot;ALDE&quot;,&quot;new.RW.pop&quot;,&quot;new.LW.pop&quot;,&quot;ni.non.pop&quot;,&quot;EFDD&quot;,&quot;ECR&quot;,&quot;ni.LW.pop&quot;,&quot;ENF&quot;)
+ES&lt;-data.frame(GROUPS,PARTIES,LAST_POLLS)
+
+seats&lt;-seats_ha(parties=c(ES$PARTIES),votes=c(ES$LAST_POLLS),n_seats=59,method=&quot;dhondt&quot;)
+ES.parties=ES$PARTIES
+EPgroups=ES$GROUP
+SPAIN&lt;-data.frame(EPgroups,ES.parties,seats)
+
+SPAIN1&lt;-aggregate(seats~EPgroups,data=SPAIN,sum)
+
+# add country code column  # ISO codes here: https://en.wikipedia.org/wiki/ISO_3166-1
+AUSTRIA$Country &lt;- c(&quot;AUT&quot;) 
+BELGIUM$Country &lt;- c(&quot;BEL&quot;)
+BULGARIA$Country &lt;- c(&quot;BGR&quot;)
+CROATIA$Country &lt;- c(&quot;HRV&quot;)
+CYPRUS$Country &lt;- c(&quot;CYP&quot;)
+CZECH$Country &lt;- c(&quot;CZE&quot;)
+DENMARK$Country &lt;- c(&quot;DNK&quot;)
+ESTONIA$Country &lt;- c(&quot;EST&quot;)
+FINLAND$Country &lt;- c(&quot;FIN&quot;)
+FRANCE$Country &lt;- c(&quot;FRA&quot;)
+GERMANY$Country &lt;- c(&quot;DEU&quot;)
+GREECE$Country &lt;- c(&quot;GRC&quot;)
+HUNGARY$Country &lt;- c(&quot;HUN&quot;)
+IRELAND$Country &lt;- c(&quot;IRL&quot;)
+ITALY$Country &lt;- c(&quot;ITA&quot;)
+LATVIA$Country &lt;- c(&quot;LVA&quot;)
+LITHUANIA$Country &lt;- c(&quot;LTU&quot;)
+LUXEMBOURG$Country &lt;- c(&quot;LUX&quot;)
+MALTA$Country &lt;- c(&quot;MLT&quot;)
+NETHERLANDS$Country &lt;- c(&quot;NLD&quot;)
+POLAND$Country &lt;- c(&quot;POL&quot;)
+PORTUGAL$Country &lt;- c(&quot;PRT&quot;)
+ROMANIA$Country &lt;- c(&quot;ROU&quot;)
+SWEDEN$Country &lt;- c(&quot;SWE&quot;)
+SLOVENIA$Country &lt;- c(&quot;SVN&quot;)
+SLOVAKIA$Country &lt;- c(&quot;SVK&quot;)
+SPAIN$Country &lt;- c(&quot;ESP&quot;)
+
+#rename party columns to same name
+colnames(AUSTRIA)[2] &lt;- &quot;National Party&quot;
+colnames(BELGIUM)[2] &lt;- &quot;National Party&quot;
+colnames(BULGARIA)[2] &lt;- &quot;National Party&quot;
+colnames(CROATIA)[2] &lt;- &quot;National Party&quot;
+colnames(CYPRUS)[2] &lt;- &quot;National Party&quot;
+colnames(CZECH)[2] &lt;- &quot;National Party&quot;
+colnames(DENMARK)[2] &lt;- &quot;National Party&quot;
+colnames(ESTONIA)[2] &lt;- &quot;National Party&quot;
+colnames(FINLAND)[2] &lt;- &quot;National Party&quot;
+colnames(FRANCE)[2] &lt;- &quot;National Party&quot;
+colnames(GERMANY)[2] &lt;- &quot;National Party&quot;
+colnames(GREECE)[2] &lt;- &quot;National Party&quot;
+colnames(HUNGARY)[2] &lt;- &quot;National Party&quot;
+colnames(IRELAND)[2] &lt;- &quot;National Party&quot;
+colnames(ITALY)[2] &lt;- &quot;National Party&quot;
+colnames(LATVIA)[2] &lt;- &quot;National Party&quot;
+colnames(LITHUANIA)[2] &lt;- &quot;National Party&quot;
+colnames(LUXEMBOURG)[2] &lt;- &quot;National Party&quot;
+colnames(MALTA)[2] &lt;- &quot;National Party&quot;
+colnames(NETHERLANDS)[2] &lt;- &quot;National Party&quot;
+colnames(POLAND)[2] &lt;- &quot;National Party&quot;
+colnames(PORTUGAL)[2] &lt;- &quot;National Party&quot;
+colnames(ROMANIA)[2] &lt;- &quot;National Party&quot;
+colnames(SWEDEN)[2] &lt;- &quot;National Party&quot;
+colnames(SLOVENIA)[2] &lt;- &quot;National Party&quot;
+colnames(SLOVAKIA)[2] &lt;- &quot;National Party&quot;
+colnames(SPAIN)[2] &lt;- &quot;National Party&quot;
+
+### create data frame with all national data
+df.countries &lt;- bind_rows(AUSTRIA, BELGIUM, BULGARIA, CROATIA, CYPRUS, CZECH, DENMARK, ESTONIA, FINLAND, FRANCE, GERMANY, GREECE, HUNGARY, IRELAND, ITALY, LATVIA, LITHUANIA, LUXEMBOURG, MALTA, NETHERLANDS, POLAND, PORTUGAL, ROMANIA, SWEDEN, SLOVENIA, SLOVAKIA, SPAIN)</code></pre>
+<pre><code>## Warning in bind_rows_(x, .id): Unequal factor levels: coercing to character</code></pre>
+<pre><code>## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector
+
+## Warning in bind_rows_(x, .id): binding character and factor vector,
+## coercing into character vector</code></pre>
+<pre class="r"><code>colnames(df.countries)[1]&lt;-&quot;EP_Group&quot; #ajust column names to TotalSeatDis
+colnames(df.countries)[3]&lt;-&quot;Seats_EP2019&quot; #ajust column names to TotalSeatDis
+df.countries &lt;- df.countries[,c(4,2,1,3)] #reorder columns, so that country (the observation) is at the beginning
+View(df.countries)
+
+
+### TOTAL SEAT DISTRIBUTION 
+TOTAL&lt;-GERMANY1$seats+AUSTRIA1$seats+BELGIUM1$seats+BULGARIA1$seats+CROATIA1$seats+CYPRUS1$seats+CZECH1$seats+DENMARK1$seats+ESTONIA1$seats+FINLAND1$seats+FRANCE1$seats+GREECE1$seats+HUNGARY1$seats+IRELAND1$seats+ITALY1$seats+LATVIA1$seats+LITHUANIA1$seats+LUXEMBOURG1$seats+MALTA1$seats+NETHERLANDS1$seats+POLAND1$seats+PORTUGAL1$seats+ROMANIA1$seats+SWEDEN1$seats+SLOVENIA1$seats+SLOVAKIA1$seats+SPAIN1$seats
+SEATDIS&lt;-data.frame(GERMANY1$EPgroups,TOTAL)
+colnames(SEATDIS)[1]&lt;-&quot;EP_Group&quot;
+colnames(SEATDIS)[2]&lt;-&quot;Seats_EP2019&quot;
+
+#Add percentage to SeatDis
+percentage&lt;-(SEATDIS$Seats/704)*100
+percentage&lt;-round(percentage, digits=2)
+TotalSeatDis&lt;-cbind(SEATDIS,percentage)
+colnames(TotalSeatDis)[3]&lt;-&quot;% EP2019&quot;
+
+#Add election results from previous years in TotalSeatDis data frame
+#Sources: http://www.europe-politique.eu/parlement-europeen.htm
+# order of groups: ALDE, ECR, EFDD, ENF, EPP, GREENS, GUE-NGL, new.LW.pop, new.non.pop, new.RW.pop, ni.LW.pop, ni.non.pop, ni.RW.pop, S&amp;D
+Seats_EP2014&lt;-c(67,70,48,37,221,50,52,&quot;NA&quot;,&quot;NA&quot;,&quot;NA&quot;,3,0,12,191)
+EP2014percentage&lt;-c(8.92,9.32,6.39,4.93,29.43,6.66,6.92,&quot;NA&quot;,&quot;NA&quot;,&quot;NA&quot;,0.4,0,1.68,25.43)
+#Seats_EP2009&lt;-c(84,55,32,55,35,&quot;NA&quot;,&quot;NA&quot;,&quot;NA&quot;,26~,26~,26~,184) #source for NIs https://en.wikipedia.org/wiki/European_Parliament_election,_2009
+#EP2009percentage&lt;-c(11.4,7.5,4.3,36.0,7.5,4.8,&quot;NA&quot;,&quot;NA&quot;,&quot;NA&quot;,3.5~,3.5~,3.5~,25.0)
+
+SeatDis_Timeline&lt;-cbind(TotalSeatDis,Seats_EP2014,EP2014percentage)
+colnames(SeatDis_Timeline)[5]&lt;-c(&quot;% EP2014&quot;)
+View(SeatDis_Timeline)
+
+######
+# create new df for tableau without distinction between new/old non-aligned
+
+SeatDis_Timeline$Seats_EP2014 &lt;- as.numeric(levels(SeatDis_Timeline$Seats_EP2014))[SeatDis_Timeline$Seats_EP2014]</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre class="r"><code>SeatDis_Timeline$&quot;% EP2014&quot; &lt;- as.numeric(levels(SeatDis_Timeline$&quot;% EP2014&quot;))[SeatDis_Timeline$&quot;% EP2014&quot;]</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre class="r"><code>LW_pop &lt;- c(&quot;LW_pop&quot;, SeatDis_Timeline$Seats_EP2019[8] + SeatDis_Timeline$Seats_EP2019[11], SeatDis_Timeline$&quot;% EP2019&quot;[8] + SeatDis_Timeline$&quot;% EP2019&quot;[11],
+            SeatDis_Timeline$Seats_EP2014[11], SeatDis_Timeline$&quot;% EP2014&quot;[11])
+RW_pop &lt;- c(&quot;RW_pop&quot;, SeatDis_Timeline$Seats_EP2019[10] + SeatDis_Timeline$Seats_EP2019[13], SeatDis_Timeline$&quot;% EP2019&quot;[10] + SeatDis_Timeline$&quot;% EP2019&quot;[13],
+            SeatDis_Timeline$Seats_EP2014[13], SeatDis_Timeline$&quot;% EP2014&quot;[13])
+non_pop &lt;- c(&quot;non_pop&quot;, SeatDis_Timeline$Seats_EP2019[9] + SeatDis_Timeline$Seats_EP2019[12], SeatDis_Timeline$&quot;% EP2019&quot;[9] + SeatDis_Timeline$&quot;% EP2019&quot;[12],
+             SeatDis_Timeline$Seats_EP2014[12], SeatDis_Timeline$&quot;% EP2014&quot;[12])
+df_pop &lt;- rbind(LW_pop, RW_pop, non_pop) # bind vectors as rows in df (&quot;Rbind&quot;)
+colnames(df_pop) &lt;- c(&quot;EP_Group&quot;, &quot;Seats_EP2019&quot;, &quot;% EP2019&quot;, &quot;Seats_EP2014&quot;, &quot;% EP2014&quot;)
+
+SeatDis_Timeline_v2 &lt;- SeatDis_Timeline[-c(8,9,10,11,12,13), ]
+SeatDis_Timeline_v2 &lt;- rbind(SeatDis_Timeline_v2, df_pop)
+rownames(SeatDis_Timeline_v2) &lt;- c(1:11)
+View(SeatDis_Timeline_v2)
+
+#make variables numeric
+SeatDis_Timeline_v2$&quot;% EP2019&quot; &lt;- as.numeric(paste(SeatDis_Timeline_v2$&quot;% EP2019&quot;))
+SeatDis_Timeline_v2$&quot;% EP2014&quot; &lt;- as.numeric(paste(SeatDis_Timeline_v2$&quot;% EP2014&quot;))
+SeatDis_Timeline_v2$&quot;Seats_EP2019&quot; &lt;- as.numeric(paste(SeatDis_Timeline_v2$&quot;Seats_EP2019&quot;))
+SeatDis_Timeline_v2$&quot;Seats_EP2014&quot; &lt;- as.numeric(paste(SeatDis_Timeline_v2$&quot;Seats_EP2014&quot;))
+#$EP_Group still is a weird factor, see str()</code></pre>
+<pre class="r"><code>print(SeatDis_Timeline_v2)</code></pre>
+<pre><code>##    EP_Group Seats_EP2019 % EP2019 Seats_EP2014 % EP2014
+## 1      ALDE           73    10.37           67     8.92
+## 2       ECR           45     6.39           70     9.32
+## 3      EFDD           40     5.68           48     6.39
+## 4       ENF           51     7.24           37     4.93
+## 5       EPP          184    26.14          221    29.43
+## 6    GREENS           36     5.11           50     6.66
+## 7   GUE-NGL           60     8.52           52     6.92
+## 8       S&amp;D          142    20.17          191    25.43
+## 9    LW_pop            4     0.57            3     0.40
+## 10   RW_pop           35     4.97           12     1.68
+## 11  non_pop           34     4.83            0     0.00</code></pre>
 </div>
 
 
