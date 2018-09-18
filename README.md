@@ -4,5 +4,3 @@ Development version of the underlying R code for the European Elections Stats pr
 https://europeanelectionsstats.eu/
 
 Developed by Camille Borrett and Moritz Laurer
-
-(Connected to RStudio)
