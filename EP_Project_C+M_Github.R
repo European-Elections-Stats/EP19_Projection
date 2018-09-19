@@ -1,4 +1,12 @@
-#installing packages
+
+# This is the R code underlying the website www.EuropeanElectionsStats.eu
+# It automatically creates a seat projection for the European Parliament, based on national poll data from all 27 member states.
+# It scrapes the nationl poll data, cleans them, calculates the EP seats for every national party
+# , aggregates these national data in an aggregate data frame and uploads the data into google sheets for our visualisation software (Tableau) and for transparency
+
+
+
+#### Install or activate packages --------------------------------------------
 
 if(!is.element('electoral', installed.packages()[,1]))
 {install.packages('electoral')
@@ -25,7 +33,9 @@ library("dplyr")
 library("rvest")
 library("magrittr")
 
-#code for each MS  
+
+
+#### code for each MS: scrape, clean, calculate, create national data frames --------------------------------
 
 #GERMANY
 de.csv<-read.csv(url("https://pollofpolls.eu/get/polls/DE-parliament/format/csv"))
@@ -983,15 +993,15 @@ colnames(SLOVENIA)[2] <- "National Party"
 colnames(SLOVAKIA)[2] <- "National Party"
 colnames(SPAIN)[2] <- "National Party"
 
-### create data frame with all national data
+
+#### create aggregate data frames with all national data frames ---------------
 df.countries <- bind_rows(AUSTRIA, BELGIUM, BULGARIA, CROATIA, CYPRUS, CZECH, DENMARK, ESTONIA, FINLAND, FRANCE, GERMANY, GREECE, HUNGARY, IRELAND, ITALY, LATVIA, LITHUANIA, LUXEMBOURG, MALTA, NETHERLANDS, POLAND, PORTUGAL, ROMANIA, SWEDEN, SLOVENIA, SLOVAKIA, SPAIN)
 colnames(df.countries)[1]<-"EP_Group" #ajust column names to TotalSeatDis
 colnames(df.countries)[3]<-"Seats_EP2019" #ajust column names to TotalSeatDis
 df.countries <- df.countries[,c(4,2,1,3)] #reorder columns, so that country (the observation) is at the beginning
 View(df.countries)
 
-
-### TOTAL SEAT DISTRIBUTION 
+## TOTAL SEAT DISTRIBUTION 
 TOTAL<-GERMANY1$seats+AUSTRIA1$seats+BELGIUM1$seats+BULGARIA1$seats+CROATIA1$seats+CYPRUS1$seats+CZECH1$seats+DENMARK1$seats+ESTONIA1$seats+FINLAND1$seats+FRANCE1$seats+GREECE1$seats+HUNGARY1$seats+IRELAND1$seats+ITALY1$seats+LATVIA1$seats+LITHUANIA1$seats+LUXEMBOURG1$seats+MALTA1$seats+NETHERLANDS1$seats+POLAND1$seats+PORTUGAL1$seats+ROMANIA1$seats+SWEDEN1$seats+SLOVENIA1$seats+SLOVAKIA1$seats+SPAIN1$seats
 SEATDIS<-data.frame(GERMANY1$EPgroups,TOTAL)
 colnames(SEATDIS)[1]<-"EP_Group"
@@ -1023,9 +1033,7 @@ sum(SeatDis_Timeline$"% EP2019") #result is not exactly 100 due to rounding erro
 View(SeatDis_Timeline)
 
 
-
-######
-# create new df for tableau without distinction between new/old non-aligned
+## create new df for tableau without distinction between new/old non-aligned
 Others_far.left <- c("Others_far.left", SeatDis_Timeline$Seats_EP2019[8] + SeatDis_Timeline$Seats_EP2019[11], SeatDis_Timeline$"% EP2019"[8] + SeatDis_Timeline$"% EP2019"[11],
             SeatDis_Timeline$Seats_EP2014[11], SeatDis_Timeline$"% EP2014"[11])
 Others_far.right <- c("Others_far.right", SeatDis_Timeline$Seats_EP2019[9] + SeatDis_Timeline$Seats_EP2019[12], SeatDis_Timeline$"% EP2019"[9] + SeatDis_Timeline$"% EP2019"[12],
@@ -1056,7 +1064,11 @@ View(SeatDis_Timeline_v2)
 
 
 
-#######   
+
+
+
+
+#### upload data frames to google sheets -------------
 # Code to upload data into google sheets
 # package: "googlesheets"
 # instructions: https://cran.r-project.org/web/packages/googlesheets/ 
