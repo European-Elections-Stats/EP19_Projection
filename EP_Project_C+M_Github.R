@@ -1,5 +1,4 @@
 #installing packages
-#git testestest
 
 if(!is.element('electoral', installed.packages()[,1]))
 {install.packages('electoral')
@@ -12,11 +11,20 @@ if(!is.element('dplyr', installed.packages()[,1]))
 {install.packages('dplyr')
 }else {print("dplyr library already installed")}
 
+if(!is.element('rvest', installed.packages()[,1]))
+{install.packages('rvest')
+}else {print("rvest library already installed")}
+if(!is.element('magrittr', installed.packages()[,1]))
+{install.packages('magrittr')
+}else {print("magrittr library already installed")}
+
 #activating packages 
 library("electoral")
 library("plyr")
 library("dplyr")
-  
+library("rvest")
+library("magrittr")
+
 #code for each MS  
 
 #GERMANY
@@ -36,7 +44,7 @@ unionmean<-mean(unionpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(afdmean,fdpmean,gruenemean,linkemean,spdmean,unionmean,0,0,0,0,0,0,0,0)
 PARTIES<-c("AFD (Germany)","FDP (Germany)","GRUENE (Germany)","LINKE (Germany)","SPD (Germany)","UNION (Germany)","N.A1","N.A2","N.A3","N.A4","N.A5","N.A6","N.A7","N.A8")
-GROUPS<-c("ni.RW.pop","ALDE","GREENS","GUE-NGL","S&D","EPP","ECR","EFDD","ni.LW.pop","new.LW.pop","new.non.pop","new.RW.pop","ni.non.pop","ENF")
+GROUPS<-c("ni.far right","ALDE","GREENS","GUE-NGL","S&D","EPP","ECR","EFDD","ni.far left","new.far left","new.moderate","new.far right","ni.moderate","ENF")
 DE<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(DE$PARTIES),votes=c(DE$LAST_POLLS),n_seats=96,method="dhondt")
@@ -63,7 +71,7 @@ pilzmean<-mean(pilzpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(fpoemean,augruenemean,neosmean,oevpmean,spoemean,pilzmean,0,0,0,0,0,0,0,0)
 PARTIES<-c("FPOE (Austria)","GRUENE (Austria)","NEOS (Austria)","OEVP (Austria)","SPOE (Austria)","PILZ (Austria)","NA1","NA2","NA3","NA4","NA5","NA6","NA7","NA8")
-GROUPS<-c("ENF","GREENS","ALDE","EPP","S&D","new.LW.pop","GUE-NGL","ECR","EFDD","ni.LW.pop","ni.non.pop","new.non.pop","new.RW.pop","ni.RW.pop")
+GROUPS<-c("ENF","GREENS","ALDE","EPP","S&D","new.far left","GUE-NGL","ECR","EFDD","ni.far left","ni.moderate","new.moderate","new.far right","ni.far right")
 AU<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(AU$PARTIES),votes=c(AU$LAST_POLLS),n_seats=19,method="dhondt")
@@ -102,7 +110,7 @@ velaamsmean<-mean(velaamspolls,na.rm=TRUE)
 
 LAST_POLLS<-c(cdhmean,cdvmean,defimean,ecolomean,groenmean,mrmean,nvamean,openvldmean,psmean,pvdaptbmean,spamean,velaamsmean,0,0,0,0,0,0)
 PARTIES<-c("cdH (Belgium)","CDV (Belgium)","DEFI (Belgium)","ECOLO (Belgium)","GROEN (Belgium)","MR (Belgium)","NVA (Belgium)","OPENVLD (Belgium)","PS (Belgium)","PVDAPTB (Belgium)","SPA (Belgium)","VELAAMSBELANG (Belgium)","NA1","NA2","NA3","NA4","NA5","NA6")
-GROUPS<-c("EPP","EPP","new.non.pop","GREENS","GREENS","ALDE","ECR","ALDE","S&D","GUE-NGL","S&D","ENF","new.RW.pop","new.LW.pop","ni.non.pop","ni.LW.pop","EFDD","ni.RW.pop")
+GROUPS<-c("EPP","EPP","new.moderate","GREENS","GREENS","ALDE","ECR","ALDE","S&D","GUE-NGL","S&D","ENF","new.far right","new.far left","ni.moderate","ni.far left","EFDD","ni.far right")
 BE<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(BE$PARTIES),votes=c(BE$LAST_POLLS),n_seats=21,method="dhondt")
@@ -135,7 +143,7 @@ bmpomean<-mean(bmpopolls,na.rm=TRUE)
 
 LAST_POLLS<-c(bspmean,dpsmean,gerbmean,rbmean,abvmean,patriotsmean,volyamean,yesbgmean,bmpomean,0,0,0,0,0,0,0,0)
 PARTIES<-c("BSP (Bulgaria)","DPS (Bulgaria)","GERB (Bulgaria)","RB (Bulgaria)","ABV (Bulgaria)","PATRIOTS (Bulgaria)","VOLYA (Bulgaria)","YESBG (Bulgaria)","BMPO (Bulgaria)","NA4 (Bulgaria)","NA5 (Bulgaria)","NA6","NA7","NA8","NA9","NA10","NA11")
-GROUPS<-c("S&D","ALDE","EPP","EPP","S&D","ECR","new.RW.pop","GREENS","ECR","EFDD","GUE-NGL","ni.non.pop","ni.LW.pop","ni.RW.pop","new.non.pop","new.LW.pop","ENF")
+GROUPS<-c("S&D","ALDE","EPP","EPP","S&D","ECR","new.far right","GREENS","ECR","EFDD","GUE-NGL","ni.moderate","ni.far left","ni.far right","new.moderate","new.far left","ENF")
 BU<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(BU$PARTIES),votes=c(BU$LAST_POLLS),n_seats=17,method="dhondt")
@@ -169,7 +177,7 @@ pmean<-mean(ppolls,na.rm=TRUE)
 
 LAST_POLLS<-c(bm365mean,hdzmean,sdphrmean,zivizidmean,mostmean,hnsmean,hssmean,idsmean,pmean,0,0,0,0,0,0,0,0,0)
 PARTIES<-c("BM365 (Croatia)","HDZ (Croatia)","SDP (Croatia)","ZIVIZID (Croatia)","MOST (Croatia)","HNS (Croatia)","HSS (Croatia)","IDS (Croatia)","P (Croatia)","NA4","NA5","NA6","NA7","NA8","NA9","NA10","NA11","NA12")
-GROUPS<-c("new.non.pop","EPP","S&D","new.LW.pop","new.non.pop","ALDE","EPP","ALDE","ALDE","EFDD","GUE-NGL","ni.non.pop","ni.LW.pop","ni.RW.pop","new.RW.pop","ECR","GREENS","ENF")
+GROUPS<-c("new.moderate","EPP","S&D","new.far left","new.moderate","ALDE","EPP","ALDE","ALDE","EFDD","GUE-NGL","ni.moderate","ni.far left","ni.far right","new.far right","ECR","GREENS","ENF")
 HR<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(HR$PARTIES),votes=c(HR$LAST_POLLS),n_seats=12,method="dhondt")
@@ -201,7 +209,7 @@ sypolmean<-mean(sypolpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(akelmean,dikomean,disymean,edekmean,elammean,kamean,kospmean,sypolmean,0,0,0,0,0,0,0)
 PARTIES<-c("AKEL (Cyprus)","DIKO (Cyprus)","DISY (Cyprus)","EDEK (Cyprus)","ELAM (Cyprus)","KA (Cyprus)","KOSP (Cyprus)","SYPOL (Cyprus)","NA4","NA5","NA6","NA7","NA8","NA9","NA10")
-GROUPS<-c("GUE-NGL","S&D","EPP","S&D","new.RW.pop","ECR","GREENS","ALDE","EFDD","ni.non.pop","ni.LW.pop","ni.RW.pop","new.LW.pop","new.non.pop","ENF")
+GROUPS<-c("GUE-NGL","S&D","EPP","S&D","new.far right","ECR","GREENS","ALDE","EFDD","ni.moderate","ni.far left","ni.far right","new.far left","new.moderate","ENF")
 CY<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(CY$PARTIES),votes=c(CY$LAST_POLLS),n_seats=6,method="dhondt")
@@ -237,7 +245,7 @@ stanmean<-mean(stanpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(anomean,cssdmean,kdumean,kscmmean,odsmean,piratimean,top9mean,szmean,spdczmean,stanmean,0,0,0,0,0,0)
 PARTIES<-c("ANO (Czech Rep)","CSSD (Czech Rep)","KDU (Czech Rep)","KSCM (Czech Rep)","ODS (Czech Rep)","PIRATI (Czech Rep)","TOP9 (Czech Rep)","SZ (Czech Rep)","SPD (Czech Rep)","STAN (Czech Rep)","NA6","NA7","NA8","NA9","NA10","NA11")
-GROUPS<-c("ALDE","S&D","EPP","GUE-NGL","ECR","new.non.pop","EPP","GREENS","new.RW.pop","EPP","ni.LW.pop","ni.RW.pop","new.LW.pop","ni.non.pop","EFDD","ENF")
+GROUPS<-c("ALDE","S&D","EPP","GUE-NGL","ECR","new.moderate","EPP","GREENS","new.far right","EPP","ni.far left","ni.far right","new.far left","ni.moderate","EFDD","ENF")
 CZ<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(CZ$PARTIES),votes=c(CZ$LAST_POLLS),n_seats=21,method="dhondt")
@@ -273,7 +281,7 @@ altmean<-mean(altpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(Amean,Bmean,Cmean,Fmean,Imean,Omean,RGmean,Vmean,Kmean,altmean,0,0,0,0,0,0,0)
 PARTIES<-c("A (Denmark)","B (Denmark)","C (Denmark)","F (Denmark)","I (Denmark)","O (Denmark)","RG (Denmark)","V (Denmark)","K (Denmark)","ALT (Denmark)","NA6","NA7","NA8","NA9","NA10","NA11","NA12")
-GROUPS<-c("S&D","ALDE","EPP","GREENS","ALDE","ECR","GUE-NGL","ALDE","EPP","new.non.pop","ni.LW.pop","ni.RW.pop","new.LW.pop","ni.non.pop","new.RW.pop","EFDD","ENF")
+GROUPS<-c("S&D","ALDE","EPP","GREENS","ALDE","ECR","GUE-NGL","ALDE","EPP","new.moderate","ni.far left","ni.far right","new.far left","ni.moderate","new.far right","EFDD","ENF")
 DK<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(DK$PARTIES),votes=c(DK$LAST_POLLS),n_seats=14,method="dhondt")
@@ -302,7 +310,7 @@ evamean<-mean(evapolls,na.rm=TRUE)
 
 LAST_POLLS<-c(ekremean,greenmean,irlmean,keskmean,refmean,sdemean,evamean,0,0,0,0,0,0,0,0)
 PARTIES<-c("EKRE (Estonia)","GREEN (Estonia)","IRL (Estonia)","KESK (Estonia)","Ref (Estonia)","SDE (Estonia)","EVA (Estonia)","NA1","NA2","NA3","NA6","NA7","NA8","NA9","NA10")
-GROUPS<-c("new.RW.pop","GREENS","EPP","ALDE","ALDE","S&D","new.non.pop","GUE-NGL","ECR","EFDD","ni.LW.pop","ni.RW.pop","new.LW.pop","ni.non.pop","ENF")
+GROUPS<-c("new.far right","GREENS","EPP","ALDE","ALDE","S&D","new.moderate","GUE-NGL","ECR","EFDD","ni.far left","ni.far right","new.far left","ni.moderate","ENF")
 EE<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(EE$PARTIES),votes=c(EE$LAST_POLLS),n_seats=7,method="dhondt")
@@ -336,7 +344,7 @@ sinmean<-mean(sinpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(kdmean,keskfnmean,kokmean,psfnmean,sdpfnmean,sfpmean,vasmean,vihrmean,sinmean,0,0,0,0,0,0,0,0)
 PARTIES<-c("KD (Finland)","KESK (Finland)","KOK (Finland)","PS (Finland)","SDP (Finland)","SFP (Finland)","VAS (Finland)","VIHR (Finland)","SIN (Finland)","NA3","NA6","NA7","NA8","NA9","NA10","NA11","NA12")
-GROUPS<-c("EPP","ALDE","EPP","ECR","S&D","ALDE","GUE-NGL","GREENS","ECR","EFDD","ni.LW.pop","ni.RW.pop","ni.non.pop","new.LW.pop","new.non.pop","new.RW.pop","ENF")
+GROUPS<-c("EPP","ALDE","EPP","ECR","S&D","ALDE","GUE-NGL","GREENS","ECR","EFDD","ni.far left","ni.far right","ni.moderate","new.far left","new.moderate","new.far right","ENF")
 FN<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(FN$PARTIES),votes=c(FN$LAST_POLLS),n_seats=14,method="dhondt")
@@ -367,7 +375,7 @@ lrmean<-mean(lrpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(dlfmean,eelvmean,fimean,fnmean,npamean,psfrmean,remmean,lrmean,0,0,0,0,0,0,0)
 PARTIES<-c("Debout la France (France)","Ecolo (France)","France Insoumise (France)","FN (France)","Parti anticapitalist (France)","PS (France)","En Marche (France)","Les Repub. (France)","NA2","NA3","NA6","NA7","NA8","NA9","NA10")
-GROUPS<-c("EFDD","GREENS","GUE-NGL","ENF","GUE-NGL","S&D","new.non.pop","EPP","ECR","ni.LW.pop","ni.non.pop","new.LW.pop","new.RW.pop","ALDE","ni.RW.pop")
+GROUPS<-c("EFDD","GREENS","GUE-NGL","ENF","GUE-NGL","S&D","new.moderate","EPP","ECR","ni.far left","ni.moderate","new.far left","new.far right","ALDE","ni.far right")
 FR<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(FR$PARTIES),votes=c(FR$LAST_POLLS),n_seats=79,method="dhondt")
@@ -400,7 +408,7 @@ kamean<-mean(kapolls,na.rm=TRUE)
 
 LAST_POLLS<-c(anelmean,grxamean,kkemean,ndmean,syrizamean,ekmean,laemean,pemean,kamean,0,0,0,0,0,0,0)
 PARTIES<-c("ANEL (Greece)","GRXA (Greece)","KKE (Greece)","ND (Greece)","SYRIZA (Greece)","EK (Greece)","LAE (Greece)","PE (Greece)","KA (Greece)","NA3","NA6","NA7","NA8","NA9","NA10","NA11")
-GROUPS<-c("ECR","ni.RW.pop","ni.LW.pop","EPP","GUE-NGL","ALDE","GUE-NGL","ni.RW.pop","S&D","ni.non.pop","new.LW.pop","new.RW.pop","new.non.pop","EFDD","GREENS","ENF")
+GROUPS<-c("ECR","ni.far right","ni.far left","EPP","GUE-NGL","ALDE","GUE-NGL","ni.far right","S&D","ni.moderate","new.far left","new.far right","new.moderate","EFDD","GREENS","ENF")
 GR<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(GR$PARTIES),votes=c(GR$LAST_POLLS),n_seats=21,method="dhondt")
@@ -429,7 +437,7 @@ mmmean<-mean(mmpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(dkmean,fidesmean,jobbikmean,lmpmean,mszpmean,mkkpmean,mmmean,0,0,0,0,0,0,0,0)
 PARTIES<-c("DK (Hungary)","FideszKDNP (Hungary)","JOBBIK (Hungary)","LMP (Hungary)","MSZP (Hungary)","MKKP (Hungary)","MM (Hungary)","NA2","NA3","NA6","NA7","NA8","NA9","NA10","NA11")
-GROUPS<-c("S&D","EPP","ni.RW.pop","GREENS","S&D","ni.non.pop","ALDE","GUE-NGL","ECR","EFDD","ni.LW.pop","new.LW.pop","new.non.pop","new.RW.pop","ENF")
+GROUPS<-c("S&D","EPP","ni.far right","GREENS","S&D","ni.moderate","ALDE","GUE-NGL","ECR","EFDD","ni.far left","new.far left","new.moderate","new.far right","ENF")
 HU<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(HU$PARTIES),votes=c(HU$LAST_POLLS),n_seats=21,method="dhondt")
@@ -462,7 +470,7 @@ iamean<-mean(iapolls,na.rm=TRUE)
 
 LAST_POLLS<-c(ffmean,fgmean,gpmean,labmean,rimean,sdmean,sfmean,spbpmean,iamean,0,0,0,0,0,0,0,0)
 PARTIES<-c("Finna Fail (Ireland)","Fine Gael (Ireland)","Green Party (Ireland)","Labour (Ireland)","Renua Ireland (Ireland)","Social Democrats (Ireland)","Sinn Fein (Ireland)","S-PBP (Ireland)","Independent Alliance (Ireland)","NA6","NA7","NA8","NA9","NA10","NA11","NA12","NA13")
-GROUPS<-c("ALDE","EPP","GREENS","S&D","new.non.pop","new.non.pop","GUE-NGL","GUE-NGL","new.non.pop","EFDD","ni.LW.pop","new.LW.pop","ni.RW.pop","new.RW.pop","ni.non.pop","ECR","ENF")
+GROUPS<-c("ALDE","EPP","GREENS","S&D","new.moderate","new.moderate","GUE-NGL","GUE-NGL","new.moderate","EFDD","ni.far left","new.far left","ni.far right","new.far right","ni.moderate","ECR","ENF")
 IR<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(IR$PARTIES),votes=c(IR$LAST_POLLS),n_seats=13,method="dhondt")
@@ -490,8 +498,8 @@ epolls<-tail(it.csv$E,3)
 emean<-mean(epolls,na.rm=TRUE)
 
 LAST_POLLS<-c(lnmean,pdITmean,m5smean,fdimean,fiITmean,leumean,emean,0,0,0,0,0,0,0,0,0)
-PARTIES<-c("Lega (Italy)","Partito Democratico (Italy)","M5S (Italy)","Fratelli d'Italia (Italy)","Forza Italia (Italy)","Liberie Uguali (Italy)","+Europa (Italy)","NA6","NA7","NA8","NA9","NA10","NA11","NA12","NA13","NA14")
-GROUPS<-c("ENF","S&D","EFDD","ni.RW.pop","EPP","S&D","new.non.pop","GUE-NGL","ni.LW.pop","new.LW.pop","new.RW.pop","ni.non.pop","ECR","GREENS","ALDE","ni.RW.pop")
+PARTIES<-c("Lega (Italy)","Partito Democratico (Italy)","M5S (Italy)","Fratelli d'Italia (Italy)","Forza Italia (Italy)","Liberie Uguali (Italy)","'+'Europa (Italy)","NA6","NA7","NA8","NA9","NA10","NA11","NA12","NA13","NA14")
+GROUPS<-c("ENF","S&D","EFDD","ni.far right","EPP","S&D","new.moderate","GUE-NGL","ni.far left","new.far left","new.far right","ni.moderate","ECR","GREENS","ALDE","ni.far right")
 IT<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(IT$PARTIES),votes=c(IT$LAST_POLLS),n_seats=76,method="dhondt")
@@ -526,7 +534,7 @@ kpvmean<-mean(kpvpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(lramean,natamean,nslmean,sdpsmean,vienotibamean,zzsmean,jkpmean,lksmean,parmean,kpvmean,0,0,0,0,0,0)
 PARTIES<-c("LRA (Latvia)","NatA (Latvia)","NSL (Latvia)","Saskana (Latvia)","Vienotiba (Latvia)","ZZS (Latvia)","JKP (Latvia)","LKS (Latvia)","PAR (Latvia)","KPV (Latvia)","NA9","NA10","NA11","NA12","NA13","NA14")
-GROUPS<-c("new.non.pop","ECR","ni.RW.pop","S&D","EPP","ALDE","new.non.pop","GREENS","EPP","new.RW.pop","new.LW.pop","ni.non.pop","ni.LW.pop","EFDD","GUE-NGL","ENF")
+GROUPS<-c("new.moderate","ECR","ni.far right","S&D","EPP","ALDE","new.moderate","GREENS","EPP","new.far right","new.far left","ni.moderate","ni.far left","EFDD","GUE-NGL","ENF")
 LV<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(LV$PARTIES),votes=c(LV$LAST_POLLS),n_seats=8,method="dhondt")
@@ -538,26 +546,26 @@ LATVIA1<-aggregate(seats~EPgroups,data=LATVIA,sum)
 
 #LITHUANIA
 lt.csv<-read.csv(url("https://pollofpolls.eu/get/polls/LT-parliament/format/csv"))
-dppolls<-tail(lt.csv$DP,3)
+dppolls<-tail(lt.csv$DP,4)
 dpmean<-mean(dppolls,na.rm=TRUE)
-llrapolls<-tail(lt.csv$LLRA,3)
+llrapolls<-tail(lt.csv$LLRA,4)
 llramean<-mean(llrapolls,na.rm=TRUE)
-lrlspolls<-tail(lt.csv$LRLS,3)
+lrlspolls<-tail(lt.csv$LRLS,4)
 lrlsmean<-mean(lrlspolls,na.rm=TRUE)
-lsdppolls<-tail(lt.csv$LSDP,3)
+lsdppolls<-tail(lt.csv$LSDP,4)
 lsdpmean<-mean(lsdppolls,na.rm=TRUE)
-lvzspolls<-tail(lt.csv$LVZS,3)
+lvzspolls<-tail(lt.csv$LVZS,4)
 lvzsmean<-mean(lvzspolls,na.rm=TRUE)
-tskdpolls<-tail(lt.csv$TSKD,3)
+tskdpolls<-tail(lt.csv$TSKD,4)
 tskdmean<-mean(tskdpolls,na.rm=TRUE)
-ttpolls<-tail(lt.csv$TT,3)
+ttpolls<-tail(lt.csv$TT,4)
 ttmean<-mean(ttpolls,na.rm=TRUE)
-LSDDPpolls<-tail(lt.csv$LSDDP,3)
+LSDDPpolls<-tail(lt.csv$LSDDP,4)
 LSDDPmean<-mean(LSDDPpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(dpmean,llramean,lrlsmean,lsdpmean,lvzsmean,tskdmean,ttmean,LSDDPmean,0,0,0,0,0,0,0,0)
 PARTIES<-c("Darbo Partija (Lithuania)","LLRA (Lithuania)","Liberaly Sajudis (Lithuania)","LSDP (Lithuania)","Lietuvos (Lithuania)","TS-KD (Lithuania)","TT (Lithuania)","LSDDP (Lithuania)","NA9","NA10","NA11","NA12","NA13","NA14","NA15","NA16")
-GROUPS<-c("ALDE","ECR","ALDE","S&D","GREENS","EPP","EFDD","S&D","GUE-NGL","new.RW.pop","new.LW.pop","new.non.pop","ni.LW.pop","ni.RW.pop","ni.non.pop","ENF")
+GROUPS<-c("ALDE","ECR","ALDE","S&D","GREENS","EPP","EFDD","S&D","GUE-NGL","new.far right","new.far left","new.moderate","ni.far left","ni.far right","ni.moderate","ENF")
 LT<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(LT$PARTIES),votes=c(LT$LAST_POLLS),n_seats=11,method="dhondt")
@@ -584,7 +592,7 @@ lsapmean<-mean(lsappolls,na.rm=TRUE)
 
 LAST_POLLS<-c(adrmean,csvmean,dgmean,dlmean,dpLUmean,lsapmean,0,0,0,0,0,0,0,0)
 PARTIES<-c("ADR (Luxembourg)","CSV (Luxembourg)","Dei Greng (Luxembourg)","Dei Lenk (Luxembourg)","DP (Luxembourg)","LSAP (Luxembourg)","NA1","NA2","NA9","NA10","NA11","NA12","NA13","NA14")
-GROUPS<-c("ECR","EPP","GREENS","GUE-NGL","ALDE","S&D","EFDD","new.RW.pop","new.LW.pop","new.non.pop","ni.LW.pop","ni.RW.pop","ni.non.pop","ENF")
+GROUPS<-c("ECR","EPP","GREENS","GUE-NGL","ALDE","S&D","EFDD","new.far right","new.far left","new.moderate","ni.far left","ni.far right","ni.moderate","ENF")
 LU<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(LU$PARTIES),votes=c(LU$LAST_POLLS),n_seats=6,method="dhondt")
@@ -605,7 +613,7 @@ pnmean<-mean(pnpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(admean,plmean,pnmean,0,0,0,0,0,0,0,0,0,0,0)
 PARTIES<-c("Alternattiva Demokratika (Malta)","Partit Laburista (Malta)","Partit Nazzjonalista (Malta)","NA3","NA4","NA5","NA1","NA2","NA9","NA10","NA11","NA12","NA13","NA14")
-GROUPS<-c("GREENS","S&D","EPP","GUE-NGL","ALDE","ECR","EFDD","new.RW.pop","new.LW.pop","new.non.pop","ni.LW.pop","ni.RW.pop","ni.non.pop","ENF")
+GROUPS<-c("GREENS","S&D","EPP","GUE-NGL","ALDE","ECR","EFDD","new.far right","new.far left","new.moderate","ni.far left","ni.far right","ni.moderate","ENF")
 MT<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(MT$PARTIES),votes=c(MT$LAST_POLLS),n_seats=6,method="dhondt")
@@ -616,35 +624,83 @@ MALTA<-data.frame(EPgroups,MT.parties,seats)
 MALTA1<-aggregate(seats~EPgroups,data=MALTA,sum)
 
 #NETHERLANDS
-nl.csv<-read.csv(url("https://pollofpolls.eu/get/polls/NL-parliament/format/csv"))
-cdapolls<-tail(nl.csv$cda,3)
-cdamean<-mean(cdapolls,na.rm=TRUE)
-cupolls<-tail(nl.csv$cu,3)
-cumean<-mean(cupolls,na.rm=TRUE)
-d66polls<-tail(nl.csv$d66,3)
-d66mean<-mean(d66polls,na.rm=TRUE)
-glpolls<-tail(nl.csv$gl,3)
-glmean<-mean(glpolls,na.rm=TRUE)
-p5Opluspolls<-tail(nl.csv$p50plus,3)
-p50plusmean<-mean(p5Opluspolls,na.rm=TRUE)
-pvdapolls<-tail(nl.csv$pvda,3)
-pvdamean<-mean(pvdapolls,na.rm=TRUE)
-pvddpolls<-tail(nl.csv$pvdd,3)
-pvddmean<-mean(pvddpolls,na.rm=TRUE)
-pvvpolls<-tail(nl.csv$pvv,3)
-pvvmean<-mean(pvvpolls,na.rm=TRUE)
-SPpolls<-tail(nl.csv$sp,3)
-SPmean<-mean(SPpolls,na.rm=TRUE)
-vvdpolls<-tail(nl.csv$vvd,3)
-vvdmean<-mean(vvdpolls,na.rm=TRUE)
-denkpolls<-tail(nl.csv$denk,3)
-denkmean<-mean(denkpolls,na.rm=TRUE)
-fvdpolls<-tail(nl.csv$fvd,3)
-fvdmean<-mean(fvdpolls,na.rm=TRUE)
+#Scraping from Wikipedia, because pollofpolls.eu only provides very rough. They lead to a tie between to parties, causing a problem for the code.  
+nl.wiki.url <- "https://en.wikipedia.org/wiki/Opinion_polling_for_the_next_Dutch_general_election"
+nl.wiki <- nl.wiki.url %>%
+  read_html() %>%
+  html_nodes(xpath='//*[@id="mw-content-text"]/div/table[2]') %>%
+  html_table()
+nl.wiki <- nl.wiki[[1]] #uses the first (=[[1]]) dataframe in the list of dataframes
+nl.wiki <- nl.wiki[-c(1), ] #deletes first row, because its same as header
 
-LAST_POLLS<-c(cdamean,cumean,d66mean,glmean,p50plusmean,pvdamean,pvddmean,pvvmean,SPmean,vvdmean,denkmean,fvdmean,0,0,0,0)
-PARTIES<-c("CDA (Netherlands)","Christian Union (Netherlands)","D66 (Netherlands)","Green Left (Netherlands)","50plus (Netherlands)","PVDA (Netherlands)","Party for Animals (Netherlands)","Party for freedom (Netherlands)","SP (Netherlands)","VVD (Netherlands)","Denk (Netherlands)","Forum for Democracy (Netherlands)","NA13","NA14","NA15","NA16")
-GROUPS<-c("EPP","ECR","ALDE","GREENS","new.non.pop","S&D","GUE-NGL","ENF","GUE-NGL","ALDE","new.LW.pop","new.RW.pop","ni.non.pop","ni.LW.pop","EFDD","ni.RW.pop")
+vvdpolls1<-head(nl.wiki$VVD,2)
+vvdpolls2<-as.numeric(gsub("%", "",vvdpolls1))
+vvdpolls3<-data.frame(vvdpolls2)
+vvdmean<-mean(vvdpolls3$vvdpolls2)
+
+pvvpolls1<-head(nl.wiki$PVV,2)
+pvvpolls2<-as.numeric(gsub("%", "",pvvpolls1))
+pvvpolls3<-data.frame(pvvpolls2)
+pvvmean<-mean(pvvpolls3$pvvpolls2)
+
+cdapolls1<-head(nl.wiki$CDA,2)
+cdapolls2<-as.numeric(gsub("%", "",cdapolls1))
+cdapolls3<-data.frame(cdapolls2)
+cdamean<-mean(cdapolls3$cdapolls2)
+
+d66polls1<-head(nl.wiki$D66,2)
+d66polls2<-as.numeric(gsub("%", "",d66polls1))
+d66polls3<-data.frame(d66polls2)
+d66mean<-mean(d66polls3$d66polls2)
+
+glpolls1<-head(nl.wiki$GL,2)
+glpolls2<-as.numeric(gsub("%", "",glpolls1))
+glpolls3<-data.frame(glpolls2)
+glmean<-mean(glpolls3$glpolls2)
+
+sppolls1<-head(nl.wiki$SP,2)
+sppolls2<-as.numeric(gsub("%", "",sppolls1))
+sppolls3<-data.frame(sppolls2)
+SPmean<-mean(sppolls3$sppolls2)
+
+pvdapolls1<-head(nl.wiki$PvdA,2)
+pvdapolls2<-as.numeric(gsub("%", "",pvdapolls1))
+pvdapolls3<-data.frame(pvdapolls2)
+pvdamean<-mean(pvdapolls3$pvdapolls2)
+
+cupolls1<-head(nl.wiki$CU,2)
+cupolls2<-as.numeric(gsub("%", "",cupolls1))
+cupolls3<-data.frame(cupolls2)
+cumean<-mean(cupolls3$cupolls2)
+
+pvddpolls1<-head(nl.wiki$PvdD,2)
+pvddpolls2<-as.numeric(gsub("%", "",pvddpolls1))
+pvddpolls3<-data.frame(pvddpolls2)
+pvddmean<-mean(pvddpolls3$pvddpolls2)
+
+p50pluspolls1<-head(nl.wiki$`50+`,2)
+p50pluspolls2<-as.numeric(gsub("%", "",p50pluspolls1))
+p50pluspolls3<-data.frame(p50pluspolls2)
+p50plusmean<-mean(p50pluspolls3$p50pluspolls2)
+
+sgppolls1<-head(nl.wiki$SGP,2)
+sgppolls2<-as.numeric(gsub("%", "",sgppolls1))
+sgppolls3<-data.frame(sgppolls2)
+sgpmean<-mean(sgppolls3$sgppolls2)
+
+denkpolls1<-head(nl.wiki$DENK,2)
+denkpolls2<-as.numeric(gsub("%", "",denkpolls1))
+denkpolls3<-data.frame(denkpolls2)
+denkmean<-mean(denkpolls3$denkpolls2)
+
+fvdpolls1<-head(nl.wiki$FvD,2)
+fvdpolls2<-as.numeric(gsub("%", "",fvdpolls1))
+fvdpolls3<-data.frame(fvdpolls2)
+fvdmean<-mean(fvdpolls3$fvdpolls2)
+
+LAST_POLLS<-c(cdamean,cumean,d66mean,glmean,p50plusmean,pvdamean,pvddmean,pvvmean,SPmean,vvdmean,denkmean,fvdmean,sgpmean,0,0,0,0)
+PARTIES<-c("CDA (Netherlands)","Christian Union (Netherlands)","D66 (Netherlands)","Green Left (Netherlands)","50plus (Netherlands)","PVDA (Netherlands)","Party for Animals (Netherlands)","Party for freedom (Netherlands)","SP (Netherlands)","VVD (Netherlands)","Denk (Netherlands)","Forum for Democracy (Netherlands)","SGP (Netherlands)","NA14","NA15","NA16","NA17")
+GROUPS<-c("EPP","ECR","ALDE","GREENS","new.moderate","S&D","GUE-NGL","ENF","GUE-NGL","ALDE","new.far left","new.far right","ECR","ni.moderate","ni.far left","EFDD","ni.far right")
 NL<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(NL$PARTIES),votes=c(NL$LAST_POLLS),n_seats=29,method="dhondt")
@@ -673,7 +729,7 @@ nmean<-mean(npolls,na.rm=TRUE)
 
 LAST_POLLS<-c(PiSmean,pomean,pslmean,sldmean,libmean,kukiz15mean,nmean,0,0,0,0,0,0,0,0)
 PARTIES<-c("PiS (Poland)","PO (Poland)","PSL (Poland)","SLD (Poland)","Wolnosc (Poland)","Kukiz15 (Poland)","Nowoczesna (Poland)","NA2","NA9","NA10","NA11","NA12","NA13","NA14","NA15")
-GROUPS<-c("ECR","EPP","EPP","S&D","EFDD","new.RW.pop","ALDE","GUE-NGL","new.LW.pop","new.non.pop","ni.LW.pop","ni.RW.pop","ni.non.pop","GREENS","ENF")
+GROUPS<-c("ECR","EPP","EPP","S&D","EFDD","new.far right","ALDE","GUE-NGL","new.far left","new.moderate","ni.far left","ni.far right","ni.moderate","GREENS","ENF")
 PL<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(PL$PARTIES),votes=c(PL$LAST_POLLS),n_seats=52,method="dhondt")
@@ -698,7 +754,7 @@ psPTmean<-mean(psPTpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(bemean,cdsppmean,cdumean,ppdpsdmean,psPTmean,0,0,0,0,0,0,0,0,0,0,0)
 PARTIES<-c("Bloco Esquerda (Portugal)","CDS-PP (Portugal)","CDU (Portugal)","PPD/PSD (Portugal)","PS (Portugal)","NA3","NA4","NA2","NA9","NA10","NA11","NA12","NA13","NA14","NA15","NA16")
-GROUPS<-c("GUE-NGL","EPP","GUE-NGL","EPP","S&D","new.RW.pop","ALDE","EFDD","new.LW.pop","new.non.pop","ni.LW.pop","ni.RW.pop","ni.non.pop","GREENS","ECR","ENF")
+GROUPS<-c("GUE-NGL","EPP","GUE-NGL","EPP","S&D","new.far right","ALDE","EFDD","new.far left","new.moderate","ni.far left","ni.far right","ni.moderate","GREENS","ECR","ENF")
 PT<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(PT$PARTIES),votes=c(PT$LAST_POLLS),n_seats=21,method="dhondt")
@@ -725,7 +781,7 @@ usrmean<-mean(usrpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(pmpmean,pnlmean,psdmean,udmrmean,alderomean,usrmean,0,0,0,0,0,0,0,0,0,0)
 PARTIES<-c("PMP (Romania)","PNL (Romania)","PSD (Romania)","UDMR (Romania)","ALDERO (Romania)","USR (Romania)","NA4","NA2","NA9","NA10","NA11","NA12","NA13","NA14","NA15","NA16")
-GROUPS<-c("EPP","EPP","S&D","EPP","ALDE","new.non.pop","GUE-NGL","EFDD","new.LW.pop","new.RW.pop","ni.LW.pop","ni.RW.pop","ni.non.pop","GREENS","ECR","ENF")
+GROUPS<-c("EPP","EPP","S&D","EPP","ALDE","new.moderate","GUE-NGL","EFDD","new.far left","new.far right","ni.far left","ni.far right","ni.moderate","GREENS","ECR","ENF")
 RO<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(RO$PARTIES),votes=c(RO$LAST_POLLS),n_seats=33,method="dhondt")
@@ -756,7 +812,7 @@ vSEmean<-mean(vSEpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(cSEmean,kdSEmean,lSEmean,mSEmean,mpSEmean,sSEmean,sdSEmean,vSEmean,0,0,0,0,0,0,0,0)
 PARTIES<-c("Centerpartiet (Sweden)","Kristdemokraterna (Sweden)","Liberalerna (Sweden)","Moderaterna (Sweden)","Miljopartiet (Sweden)","Socialdemokraterna (Sweden)","Sverigedemokraterna (Sweden)","Vansterpartiet (Sweden)","NA9","NA10","NA11","NA12","NA13","NA14","NA15","NA16")
-GROUPS<-c("ALDE","EPP","ALDE","EPP","GREENS","S&D","EFDD","GUE-NGL","new.LW.pop","new.RW.pop","ni.LW.pop","ni.RW.pop","ni.non.pop","new.non.pop","ECR","ENF")
+GROUPS<-c("ALDE","EPP","ALDE","EPP","GREENS","S&D","EFDD","GUE-NGL","new.far left","new.far right","ni.far left","ni.far right","ni.moderate","new.moderate","ECR","ENF")
 SE<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(SE$PARTIES),votes=c(SE$LAST_POLLS),n_seats=21,method="dhondt")
@@ -789,7 +845,7 @@ lmsSImean<-mean(lmsSIpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(desusmean,nsimean,sdSImean,sdsSImean,pabSImean,smcmean,snsmean,theleftmean,lmsSImean,0,0,0,0,0,0,0,0)
 PARTIES<-c("DeSUS (Slovenia)","N.Si (Slovenia)","SD (Slovenia)","SDS (Slovenia)","Stranka Alenke Bratusek (Slovenia)","SMC (Slovenia)","SNS (Slovenia)","Levica (Slovenia)","Marjana Sarca (Slovenia)","NA10","NA11","NA12","NA13","NA14","NA15","NA16","NA17")
-GROUPS<-c("ALDE","EPP","S&D","EPP","ALDE","ALDE","ni.RW.pop","GUE-NGL","new.non.pop","new.RW.pop","new.LW.pop","ni.LW.pop","ni.non.pop","EFDD","ECR","GREENS","ENF")
+GROUPS<-c("ALDE","EPP","S&D","EPP","ALDE","ALDE","ni.far right","GUE-NGL","new.moderate","new.far right","new.far left","ni.far left","ni.moderate","EFDD","ECR","GREENS","ENF")
 SI<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(SI$PARTIES),votes=c(SI$LAST_POLLS),n_seats=8,method="dhondt")
@@ -826,7 +882,7 @@ spolumean<-mean(spolupolls,na.rm=TRUE)
 
 LAST_POLLS<-c(kdhSKmean,mosthidSKmean,olanomean,sasSKmean,smerSDmean,snsSKmean,smk.mkpmean,kotlebamean,sme.rodinamean,psSKmean,spolumean,0,0,0,0,0,0,0,0)
 PARTIES<-c("KDH (Slovakia)","Most-Hid (Slovakia)","Obycajini L'udia (Slovakia)","SaS (Slovakia)","Smer-SD (Slovakia)","SNS (Slovakia)","SMK-MKP (Slovakia)","Kotleba-LSNS (Slovakia)","Sme-Rodina (Slovakia)","PS (Slovakia)","SPOLU (Slovakia)","NA12","NA13","NA14","NA15","NA16","NA17","NA18","NA19")
-GROUPS<-c("EPP","EPP","ECR","ECR","S&D","EFDD","EPP","EFDD","new.RW.pop","new.non.pop","EPP","ni.LW.pop","ni.non.pop","ni.RW.pop","GREENS","GUE-NGL","new.LW.pop","ALDE","ENF")
+GROUPS<-c("EPP","EPP","ECR","ECR","S&D","EFDD","EPP","EFDD","new.far right","new.moderate","EPP","ni.far left","ni.moderate","ni.far right","GREENS","GUE-NGL","new.far left","ALDE","ENF")
 SK<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(SK$PARTIES),votes=c(SK$LAST_POLLS),n_seats=14,method="dhondt")
@@ -859,7 +915,7 @@ pdecatmean<-mean(pdecatpolls,na.rm=TRUE)
 
 LAST_POLLS<-c(ppESmean,psoeESmean,ercESmean,pnvESmean,csESmean,voxmean,podemosmean,pacmamean,pdecatmean,0,0,0,0,0,0,0)
 PARTIES<-c("Partido Popular (Spain)","PSOE (Spain)","Esquerra Republicana (Spain)","PNV (Spain)","Ciudadanos (Spain)","Vox (Spain)","Podemos (Spain)","PACMA (Spain)","PDeCAT (Spain)","NA10","NA11","NA12","NA13","NA14","NA15","NA16")
-GROUPS<-c("EPP","S&D","GREENS","ALDE","ALDE","ni.RW.pop","GUE-NGL","new.non.pop","ALDE","new.RW.pop","new.LW.pop","ni.non.pop","EFDD","ECR","ni.LW.pop","ENF")
+GROUPS<-c("EPP","S&D","GREENS","ALDE","ALDE","ni.far right","GUE-NGL","new.moderate","ALDE","new.far right","new.far left","ni.moderate","EFDD","ECR","ni.far left","ENF")
 ES<-data.frame(GROUPS,PARTIES,LAST_POLLS)
 
 seats<-seats_ha(parties=c(ES$PARTIES),votes=c(ES$LAST_POLLS),n_seats=59,method="dhondt")
@@ -869,7 +925,7 @@ SPAIN<-data.frame(EPgroups,ES.parties,seats)
 
 SPAIN1<-aggregate(seats~EPgroups,data=SPAIN,sum)
 
-# add country code column  # ISO codes here: https://en.wikipedia.org/wiki/ISO_3166-1
+# add country code column  #ISO codes here: https://en.wikipedia.org/wiki/ISO_3166-1
 AUSTRIA$Country <- c("AUT") 
 BELGIUM$Country <- c("BEL")
 BULGARIA$Country <- c("BGR")
@@ -949,41 +1005,55 @@ colnames(TotalSeatDis)[3]<-"% EP2019"
 
 #Add election results from previous years in TotalSeatDis data frame
 #Sources: http://www.europe-politique.eu/parlement-europeen.htm
-# order of groups: ALDE, ECR, EFDD, ENF, EPP, GREENS, GUE-NGL, new.LW.pop, new.non.pop, new.RW.pop, ni.LW.pop, ni.non.pop, ni.RW.pop, S&D
-Seats_EP2014<-c(67,70,48,37,221,50,52,"NA","NA","NA",3,0,12,191)
-EP2014percentage<-c(8.92,9.32,6.39,4.93,29.43,6.66,6.92,"NA","NA","NA",0.4,0,1.68,25.43)
+# order of groups: ALDE, ECR, EFDD, ENF, EPP, GREENS, GUE-NGL, new.far left, new.moderate, new.far right, ni.far left, ni.moderate, ni.far right, S&D
+Seats_EP2014<-as.integer(c(67,70,48,37,221,50,52,"NA","NA","NA",3,0,12,191))
+percent_EP2014<-as.numeric(c(8.92,9.32,6.39,4.93,29.43,6.66,6.92,"NA","NA","NA",0.4,0,1.68,25.43))
 #Seats_EP2009<-c(84,55,32,55,35,"NA","NA","NA",26~,26~,26~,184) #source for NIs https://en.wikipedia.org/wiki/European_Parliament_election,_2009
 #EP2009percentage<-c(11.4,7.5,4.3,36.0,7.5,4.8,"NA","NA","NA",3.5~,3.5~,3.5~,25.0)
 
-SeatDis_Timeline<-cbind(TotalSeatDis,Seats_EP2014,EP2014percentage)
+SeatDis_Timeline<-cbind(TotalSeatDis,Seats_EP2014,percent_EP2014)
 colnames(SeatDis_Timeline)[5]<-c("% EP2014")
+
+#check if the numbers add up
+sum(SeatDis_Timeline$Seats_EP2019) # should be 705
+sum(SeatDis_Timeline$"% EP2014", na.rm=TRUE) #result is not exactly 100 due to rounding errors
+sum(SeatDis_Timeline$Seats_EP2014, na.rm=TRUE) # should be 751
+sum(SeatDis_Timeline$"% EP2019") #result is not exactly 100 due to rounding errors
+
 View(SeatDis_Timeline)
+
+
 
 ######
 # create new df for tableau without distinction between new/old non-aligned
-
-SeatDis_Timeline$Seats_EP2014 <- as.numeric(levels(SeatDis_Timeline$Seats_EP2014))[SeatDis_Timeline$Seats_EP2014]
-SeatDis_Timeline$"% EP2014" <- as.numeric(levels(SeatDis_Timeline$"% EP2014"))[SeatDis_Timeline$"% EP2014"]
-LW_pop <- c("LW_pop", SeatDis_Timeline$Seats_EP2019[8] + SeatDis_Timeline$Seats_EP2019[11], SeatDis_Timeline$"% EP2019"[8] + SeatDis_Timeline$"% EP2019"[11],
+Others_far.left <- c("Others_far.left", SeatDis_Timeline$Seats_EP2019[8] + SeatDis_Timeline$Seats_EP2019[11], SeatDis_Timeline$"% EP2019"[8] + SeatDis_Timeline$"% EP2019"[11],
             SeatDis_Timeline$Seats_EP2014[11], SeatDis_Timeline$"% EP2014"[11])
-RW_pop <- c("RW_pop", SeatDis_Timeline$Seats_EP2019[10] + SeatDis_Timeline$Seats_EP2019[13], SeatDis_Timeline$"% EP2019"[10] + SeatDis_Timeline$"% EP2019"[13],
-            SeatDis_Timeline$Seats_EP2014[13], SeatDis_Timeline$"% EP2014"[13])
-non_pop <- c("non_pop", SeatDis_Timeline$Seats_EP2019[9] + SeatDis_Timeline$Seats_EP2019[12], SeatDis_Timeline$"% EP2019"[9] + SeatDis_Timeline$"% EP2019"[12],
-             SeatDis_Timeline$Seats_EP2014[12], SeatDis_Timeline$"% EP2014"[12])
-df_pop <- rbind(LW_pop, RW_pop, non_pop) # bind vectors as rows in df ("Rbind")
-colnames(df_pop) <- c("EP_Group", "Seats_EP2019", "% EP2019", "Seats_EP2014", "% EP2014")
+Others_far.right <- c("Others_far.right", SeatDis_Timeline$Seats_EP2019[9] + SeatDis_Timeline$Seats_EP2019[12], SeatDis_Timeline$"% EP2019"[9] + SeatDis_Timeline$"% EP2019"[12],
+            SeatDis_Timeline$Seats_EP2014[12], SeatDis_Timeline$"% EP2014"[12])
+Others_moderate <- c("Others_moderate", SeatDis_Timeline$Seats_EP2019[10] + SeatDis_Timeline$Seats_EP2019[13], SeatDis_Timeline$"% EP2019"[10] + SeatDis_Timeline$"% EP2019"[13],
+             SeatDis_Timeline$Seats_EP2014[13], SeatDis_Timeline$"% EP2014"[13])
+df_others <- rbind(Others_far.left, Others_far.right, Others_moderate) # bind vectors as rows in df ("Rbind")
+colnames(df_others) <- c("EP_Group", "Seats_EP2019", "% EP2019", "Seats_EP2014", "% EP2014")
 
 SeatDis_Timeline_v2 <- SeatDis_Timeline[-c(8,9,10,11,12,13), ]
-SeatDis_Timeline_v2 <- rbind(SeatDis_Timeline_v2, df_pop)
+SeatDis_Timeline_v2 <- rbind(SeatDis_Timeline_v2, df_others)
 rownames(SeatDis_Timeline_v2) <- c(1:11)
-View(SeatDis_Timeline_v2)
 
-#make variables numeric
+#make variables correct numeric/integer/factor
 SeatDis_Timeline_v2$"% EP2019" <- as.numeric(paste(SeatDis_Timeline_v2$"% EP2019"))
 SeatDis_Timeline_v2$"% EP2014" <- as.numeric(paste(SeatDis_Timeline_v2$"% EP2014"))
-SeatDis_Timeline_v2$"Seats_EP2019" <- as.numeric(paste(SeatDis_Timeline_v2$"Seats_EP2019"))
-SeatDis_Timeline_v2$"Seats_EP2014" <- as.numeric(paste(SeatDis_Timeline_v2$"Seats_EP2014"))
-#$EP_Group still is a weird factor, see str()
+SeatDis_Timeline_v2$"Seats_EP2019" <- as.integer(paste(SeatDis_Timeline_v2$"Seats_EP2019"))
+SeatDis_Timeline_v2$"Seats_EP2014" <- as.integer(paste(SeatDis_Timeline_v2$"Seats_EP2014"))
+SeatDis_Timeline_v2$EP_Group <- as.factor(paste(SeatDis_Timeline_v2$EP_Group))
+
+#check if the numbers add up
+sum(SeatDis_Timeline_v2$Seats_EP2019)
+sum(SeatDis_Timeline_v2$"% EP2014") #result is not exactly 100 due to rounding errors
+sum(SeatDis_Timeline_v2$Seats_EP2014) 
+sum(SeatDis_Timeline_v2$"% EP2019") #result is not exactly 100 due to rounding errors
+
+View(SeatDis_Timeline_v2)
+
 
 
 #######   
