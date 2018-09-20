@@ -1014,12 +1014,13 @@ TotalSeatDis<-cbind(SEATDIS,percentage)
 colnames(TotalSeatDis)[3]<-"% EP2019"
 
 #Add election results from previous years in TotalSeatDis data frame
-#Sources: http://www.europe-politique.eu/parlement-europeen.htm
-# order of groups: ALDE, ECR, EFDD, ENF, EPP, GREENS, GUE-NGL, new.far left, new.moderate, new.far right, ni.far left, ni.moderate, ni.far right, S&D
-Seats_EP2014<-as.integer(c(67,70,48,37,221,50,52,"NA","NA","NA",3,0,12,191))
-percent_EP2014<-as.numeric(c(8.92,9.32,6.39,4.93,29.43,6.66,6.92,"NA","NA","NA",0.4,0,1.68,25.43))
+#Sources: http://www.europe-politique.eu/parlement-europeen.htm / by MS: http://www.europarl.europa.eu/elections2014-results/en/seats-member-state-absolut.html
+# order of groups: ALDE, ECR, EFDD, ENF, EPP, GREENS, GUE-NGL, new.far left, new.far right, new.moderate, ni.far left, ni.far right, ni.moderate, S&D
+Seats_EP2014<-as.integer(c(67,70,48,41,221,50,52,"NA","NA","NA",2,8,1,191))
+percent_EP2014<-as.numeric(c(8.92,9.32,6.39,5.46,29.43,6.66,6.92,"NA","NA","NA",0.26,1.06,0.13,25.43))
 #Seats_EP2009<-c(84,55,32,55,35,"NA","NA","NA",26~,26~,26~,184) #source for NIs https://en.wikipedia.org/wiki/European_Parliament_election,_2009
 #EP2009percentage<-c(11.4,7.5,4.3,36.0,7.5,4.8,"NA","NA","NA",3.5~,3.5~,3.5~,25.0)
+#percentage calculation (x / 751) * 100
 
 SeatDis_Timeline<-cbind(TotalSeatDis,Seats_EP2014,percent_EP2014)
 colnames(SeatDis_Timeline)[5]<-c("% EP2014")
@@ -1055,16 +1056,12 @@ SeatDis_Timeline_v2$"Seats_EP2014" <- as.integer(paste(SeatDis_Timeline_v2$"Seat
 SeatDis_Timeline_v2$EP_Group <- as.factor(paste(SeatDis_Timeline_v2$EP_Group))
 
 #check if the numbers add up
-sum(SeatDis_Timeline_v2$Seats_EP2019)
+sum(SeatDis_Timeline_v2$Seats_EP2019) # should be 705
 sum(SeatDis_Timeline_v2$"% EP2014") #result is not exactly 100 due to rounding errors
-sum(SeatDis_Timeline_v2$Seats_EP2014) 
+sum(SeatDis_Timeline_v2$Seats_EP2014) # should be 751
 sum(SeatDis_Timeline_v2$"% EP2019") #result is not exactly 100 due to rounding errors
 
 View(SeatDis_Timeline_v2)
-
-
-
-
 
 
 
