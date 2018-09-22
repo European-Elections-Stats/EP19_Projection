@@ -3,26 +3,20 @@ title: "European Parliament Seat Projection"
 output:
   html_document:
     keep_md: yes
-  pdf_document: default
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-	echo = TRUE,
-	message = FALSE,
-	warning = FALSE
-)
-```
 
 
+# European Parliament Seat Projection
 The following code produces a seat projection for the European Parliament, if it were elected today. The code scrapes national poll data for all 27 member states, calculates the seat distribution for the respective national parties and aggregates the data for an EU wide seat projection. The final code chunk uploads the data to google sheets.  
 The data produced by the code are visualised with Tableau and interpreted on [http://europeanelectionsstats.eu/](http://europeanelectionsstats.eu/)  
 Some more details on the method can be found here: [https://europeanelectionsstats.eu/method/](https://europeanelectionsstats.eu/method/)  
 If you find errors or have questions/suggestions please submit them on github or contact contact@europeanelectionsstats.eu
 
 
-## Install and load the necessary packages {#css_id}
-```{r Packages, message=FALSE, warning=FALSE, paged.print=FALSE,  results='hide'}
+## Install and load the necessary packages
+
+```r
 #installing packages
 
 if(!is.element('electoral', installed.packages()[,1]))
@@ -52,8 +46,9 @@ library("magrittr")
 ```
 
 
-## Code for every member state {#css_id}
-```{r Member States Calculation, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+## Code for every member state
+
+```r
 #### code for each MS: scrape, clean, calculate, create national data frames --------------------------------
 
 #GERMANY
@@ -1011,14 +1006,12 @@ colnames(SWEDEN)[2] <- "National Party"
 colnames(SLOVENIA)[2] <- "National Party"
 colnames(SLOVAKIA)[2] <- "National Party"
 colnames(SPAIN)[2] <- "National Party"
-
-
 ```
 
 
-## Create EU-wide aggregate data frames {#css_id}
-```{r Data Aggregation}
+## Create EU-wide aggregate data frames
 
+```r
 #### create aggregate data frames with all national data frames ---------------
 df.countries <- bind_rows(AUSTRIA, BELGIUM, BULGARIA, CROATIA, CYPRUS, CZECH, DENMARK, ESTONIA, FINLAND, FRANCE, GERMANY, GREECE, HUNGARY, IRELAND, ITALY, LATVIA, LITHUANIA, LUXEMBOURG, MALTA, NETHERLANDS, POLAND, PORTUGAL, ROMANIA, SWEDEN, SLOVENIA, SLOVAKIA, SPAIN)
 colnames(df.countries)[1]<-"EP_Group" #ajust column names to TotalSeatDis
@@ -1051,11 +1044,38 @@ SeatDis_Timeline<-cbind(TotalSeatDis,Seats_EP2014,percent_EP2014)
 colnames(SeatDis_Timeline)[5]<-c("% EP2014")
 
 #check if the numbers add up
-sum(SeatDis_Timeline$Seats_EP2019) # should be 705
-sum(SeatDis_Timeline$"% EP2014", na.rm=TRUE) #result is not exactly 100 due to rounding errors
-sum(SeatDis_Timeline$Seats_EP2014, na.rm=TRUE) # should be 751
-sum(SeatDis_Timeline$"% EP2019") #result is not exactly 100 due to rounding errors
+sum(SeatDis_Timeline$Seats_EP2019) # should be 705 since total seats of the EP in 2019 will be 705 after Brexit
+```
 
+```
+## [1] 705
+```
+
+```r
+sum(SeatDis_Timeline$"% EP2014", na.rm=TRUE) # adding all % should result in 100. result is not exactly 100 due to rounding errors
+```
+
+```
+## [1] 99.98
+```
+
+```r
+sum(SeatDis_Timeline$Seats_EP2014, na.rm=TRUE) # should be 751 since the total seats of the EP since 2014 were 751 before Brexit
+```
+
+```
+## [1] 751
+```
+
+```r
+sum(SeatDis_Timeline$"% EP2019") #result is not exactly 100 due to rounding errors
+```
+
+```
+## [1] 100.14
+```
+
+```r
 View(SeatDis_Timeline)
 
 
@@ -1081,18 +1101,61 @@ SeatDis_Timeline_v2$"Seats_EP2014" <- as.integer(paste(SeatDis_Timeline_v2$"Seat
 SeatDis_Timeline_v2$EP_Group <- as.factor(paste(SeatDis_Timeline_v2$EP_Group))
 
 #check if the numbers add up
-sum(SeatDis_Timeline_v2$Seats_EP2019) # should be 705
-sum(SeatDis_Timeline_v2$"% EP2014") #result is not exactly 100 due to rounding errors
-sum(SeatDis_Timeline_v2$Seats_EP2014) # should be 751
-sum(SeatDis_Timeline_v2$"% EP2019") #result is not exactly 100 due to rounding errors
+sum(SeatDis_Timeline_v2$Seats_EP2019) # should be 705 since total seats of the EP in 2019 will be 705 after Brexit
+```
 
+```
+## [1] 705
+```
+
+```r
+sum(SeatDis_Timeline_v2$"% EP2014") #result is not exactly 100 due to rounding errors
+```
+
+```
+## [1] 99.98
+```
+
+```r
+sum(SeatDis_Timeline_v2$Seats_EP2014) # should be 751 since the total seats of the EP since 2014 were 751 before Brexit
+```
+
+```
+## [1] 751
+```
+
+```r
+sum(SeatDis_Timeline_v2$"% EP2019") #result is not exactly 100 due to rounding errors
+```
+
+```
+## [1] 100.14
+```
+
+```r
 View(SeatDis_Timeline_v2)
 print(SeatDis_Timeline_v2)
 ```
 
+```
+##            EP_Group Seats_EP2019 % EP2019 Seats_EP2014 % EP2014
+## 1              ALDE           76    10.80           67     8.92
+## 2               ECR           46     6.53           70     9.32
+## 3              EFDD           39     5.54           48     6.39
+## 4               ENF           52     7.39           36     4.79
+## 5               EPP          182    25.85          221    29.43
+## 6            GREENS           35     4.97           50     6.66
+## 7           GUE-NGL           61     8.66           52     6.92
+## 8               S&D          140    19.89          191    25.43
+## 9   Others_far.left            3     0.42            2     0.26
+## 10 Others_far.right           38     5.40           13     1.73
+## 11  Others_moderate           33     4.69            1     0.13
+```
 
-## Upload data frames to google sheets {#css_id}
-```{r Upload to Google Sheets, echo=TRUE, results='hide', message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+
+## Upload data frames to google sheets
+
+```r
 #### upload data frames to google sheets -------------
 # instructions: https://cran.r-project.org/web/packages/googlesheets/ 
 # better instructions https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html#download-sheets-as-csv-pdf-or-xlsx-file
@@ -1127,6 +1190,5 @@ SeatDis_Timeline_gs_v2 <- gs_title("SeatDis_Timeline_gs_v2")
 gs_edit_cells(EP_Countries_gs, ws = 1, trim = FALSE, input = df.countries) # update seems to work despite error message
 gs_edit_cells(SeatDis_Timeline_gs, ws = 1, trim = FALSE, input = SeatDis_Timeline)
 gs_edit_cells(SeatDis_Timeline_gs_v2, ws = 1, trim = FALSE, input = SeatDis_Timeline_v2)
-
 ```
 
