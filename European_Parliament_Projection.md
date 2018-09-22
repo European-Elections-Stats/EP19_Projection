@@ -1134,6 +1134,11 @@ sum(SeatDis_Timeline_v2$"% EP2019") #result is not exactly 100 due to rounding e
 
 ```r
 View(SeatDis_Timeline_v2)
+```
+
+## European Parliament Seat Projection - data frame 
+
+```r
 print(SeatDis_Timeline_v2)
 ```
 
